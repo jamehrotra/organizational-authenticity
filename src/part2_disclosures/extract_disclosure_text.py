@@ -70,19 +70,24 @@ def clean_edgar_text(raw: str) -> str:
             soup = BeautifulSoup(content, "lxml")
             for tag in soup(["script", "style", "nav", "header", "footer"]):
                 tag.decompose()
-            content = soup.get_text(separator=" ", strip=True)
+            content = soup.get_text(separator="\n", strip=True)
         except Exception:
             content = re.sub(r"<[^>]+>", " ", content)
     else:
         content = re.sub(r"<[^>]+>", " ", content)
 
     # Clean EDGAR/HTML entities
+    import unicodedata
+    content = unicodedata.normalize("NFKC", content)
     content = re.sub(r"&[A-Za-z]+;", " ", content)
     content = re.sub(r"&#\d+;", " ", content)
     content = re.sub(r"[-_=]{4,}", " ", content)
     content = re.sub(r"\bPage\s+\d+\b", "", content, flags=re.IGNORECASE)
 
-    return _normalize(content)
+    # Light normalization: collapse whitespace, remove very short lines
+    lines = [l.strip() for l in content.splitlines() if l.strip()]
+    lines = [l for l in lines if len(l) > 5]
+    return "\n".join(lines).strip()
 
 
 def extract_one(ticker: str, year: int, force: bool = False) -> dict:
