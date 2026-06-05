@@ -26,11 +26,19 @@ SEC_DIR = DATA_RAW / "sec_filings"
 
 
 def find_filing_file(ticker: str, year: int) -> Path | None:
-    """Find the main .txt filing file for a ticker-year."""
+    """Find the main full-submission.txt for a ticker-year.
+
+    sec-edgar-downloader v5 saves to:
+      <base>/<year>/sec-edgar-filings/<TICKER>/DEF 14A/<accession>/full-submission.txt
+    """
     base = SEC_DIR / ticker / str(year)
     if not base.exists():
         return None
-    # sec-edgar-downloader nests files; look for the main document
+    # Prefer the largest .txt — full-submission.txt is typically the biggest
+    candidates = sorted(base.rglob("full-submission.txt"), key=lambda p: p.stat().st_size, reverse=True)
+    if candidates:
+        return candidates[0]
+    # Fallback: any .txt
     candidates = sorted(base.rglob("*.txt"), key=lambda p: p.stat().st_size, reverse=True)
     return candidates[0] if candidates else None
 

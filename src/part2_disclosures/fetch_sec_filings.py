@@ -42,7 +42,7 @@ def fetch_ticker_year(ticker: str, year: int, force: bool = False) -> dict:
         dl = Downloader(
             company_name="organizational-authenticity",
             email_address="jmhrotra@sas.upenn.edu",
-            save_path=str(out_dir),
+            download_folder=str(out_dir),
         )
         # after_date / before_date narrows to filings submitted in that year
         dl.get(
