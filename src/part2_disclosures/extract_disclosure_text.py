@@ -44,33 +44,55 @@ def find_filing_file(ticker: str, year: int) -> Path | None:
 
 
 def clean_edgar_text(raw: str) -> str:
-    """Strip SGML/HTML markup and EDGAR boilerplate from a DEF 14A filing."""
-    # Remove SGML document headers
-    raw = re.sub(r"<SEC-DOCUMENT>.*?<TEXT>", "", raw, flags=re.DOTALL | re.IGNORECASE)
-    raw = re.sub(r"</TEXT>.*", "", raw, flags=re.DOTALL | re.IGNORECASE)
+    """Extract readable text from a DEF 14A full-submission.txt file.
 
-    # Strip HTML tags
-    raw = re.sub(r"<[^>]+>", " ", raw)
+    EDGAR full-submission files are SGML containers with one or more <DOCUMENT>
+    sections. The main proxy document may be plain text or HTML. We extract the
+    first DEF 14A document's content and clean it.
+    """
+    # Extract the first <DOCUMENT> block of type DEF 14A
+    doc_match = re.search(
+        r"<DOCUMENT>\s*<TYPE>DEF 14A.*?<TEXT>(.*?)</TEXT>",
+        raw,
+        flags=re.DOTALL | re.IGNORECASE,
+    )
+    if doc_match:
+        content = doc_match.group(1)
+    else:
+        # Fallback: take everything after the first <TEXT> tag
+        text_match = re.search(r"<TEXT>(.*)", raw, flags=re.DOTALL | re.IGNORECASE)
+        content = text_match.group(1) if text_match else raw
 
-    # Remove EDGAR-specific markers
-    raw = re.sub(r"&[A-Za-z]+;", " ", raw)
-    raw = re.sub(r"&#\d+;", " ", raw)
+    # If it's HTML, use BeautifulSoup for cleaner extraction
+    if re.search(r"<html", content, re.IGNORECASE):
+        try:
+            from bs4 import BeautifulSoup
+            soup = BeautifulSoup(content, "lxml")
+            for tag in soup(["script", "style", "nav", "header", "footer"]):
+                tag.decompose()
+            content = soup.get_text(separator=" ", strip=True)
+        except Exception:
+            content = re.sub(r"<[^>]+>", " ", content)
+    else:
+        content = re.sub(r"<[^>]+>", " ", content)
 
-    # Remove sequences of dashes/underscores used as decorators
-    raw = re.sub(r"[-_=]{4,}", " ", raw)
+    # Clean EDGAR/HTML entities
+    content = re.sub(r"&[A-Za-z]+;", " ", content)
+    content = re.sub(r"&#\d+;", " ", content)
+    content = re.sub(r"[-_=]{4,}", " ", content)
+    content = re.sub(r"\bPage\s+\d+\b", "", content, flags=re.IGNORECASE)
 
-    # Remove page numbers and typical header/footer patterns
-    raw = re.sub(r"\bPage\s+\d+\b", "", raw, flags=re.IGNORECASE)
-    raw = re.sub(r"\bTable of Contents\b", "", raw, flags=re.IGNORECASE)
-
-    return _normalize(raw)
+    return _normalize(content)
 
 
 def extract_one(ticker: str, year: int, force: bool = False) -> dict:
     out_path = interim_path("part2", f"{slug(ticker, year)}_proxy_clean.txt")
 
     if not force and is_cached(out_path):
-        return {"ticker": ticker, "year": year, "status": "cached"}
+        # Re-extract if cached file is empty (happens with HTML-format filings on first pass)
+        if out_path.stat().st_size > 100:
+            return {"ticker": ticker, "year": year, "status": "cached"}
+        # else fall through and re-extract
 
     filing = find_filing_file(ticker, year)
     if not filing:
