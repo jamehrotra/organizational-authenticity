@@ -27,9 +27,15 @@ FILING_TYPE = "DEF 14A"
 USER_AGENT = "organizational-authenticity-research jmhrotra@sas.upenn.edu"
 
 
+EDGAR_TICKER_MAP = {
+    "BRK.B": "BRK-B",
+}
+
+
 def fetch_ticker_year(ticker: str, year: int, force: bool = False) -> dict:
     """Download DEF 14A for a ticker filed in a given calendar year."""
     from sec_edgar_downloader import Downloader
+    edgar_ticker = EDGAR_TICKER_MAP.get(ticker, ticker)
 
     out_dir = SEC_DIR / ticker / str(year)
 
@@ -47,7 +53,7 @@ def fetch_ticker_year(ticker: str, year: int, force: bool = False) -> dict:
         # after_date / before_date narrows to filings submitted in that year
         dl.get(
             FILING_TYPE,
-            ticker,
+            edgar_ticker,
             after=f"{year}-01-01",
             before=f"{year}-12-31",
             limit=1,

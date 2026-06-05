@@ -53,6 +53,7 @@ async def download_one(
             raw_url,
             timeout=aiohttp.ClientTimeout(total=TIMEOUT),
             allow_redirects=True,
+            ssl=False,
         ) as resp:
             if resp.status != 200:
                 log.warning(f"{ticker} {year}: HTTP {resp.status} for {raw_url}")

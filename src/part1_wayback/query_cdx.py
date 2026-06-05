@@ -31,9 +31,9 @@ from src.common.utils import (
 
 log = setup_logging("query_cdx")
 
-CDX_API = "http://web.archive.org/cdx/search/cdx"
-CONCURRENCY = 8
-TIMEOUT = 30
+CDX_API = "https://web.archive.org/cdx/search/cdx"
+CONCURRENCY = 5
+TIMEOUT = 45
 
 
 def _cdx_url(url: str) -> str:
@@ -58,7 +58,7 @@ async def query_cdx_for_url(
         "collapse": "digest",
     }
     try:
-        async with session.get(CDX_API, params=params, timeout=aiohttp.ClientTimeout(total=TIMEOUT)) as resp:
+        async with session.get(CDX_API, params=params, timeout=aiohttp.ClientTimeout(total=TIMEOUT), ssl=False) as resp:
             if resp.status != 200:
                 return []
             data = await resp.json(content_type=None)
