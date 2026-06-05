@@ -17,6 +17,7 @@ Usage:
 
 import argparse
 import json
+import time
 from difflib import SequenceMatcher
 from pathlib import Path
 
@@ -122,6 +123,7 @@ def run_all(force: bool = False, model: str = "claude-haiku-4-5-20251001"):
                         cache_path=llm_cache,
                         force=force,
                     )
+                    time.sleep(3)
 
             # Extract theme scores
             theme_scores = {}
