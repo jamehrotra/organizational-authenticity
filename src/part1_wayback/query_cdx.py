@@ -36,40 +36,69 @@ CONCURRENCY = 5
 TIMEOUT = 45
 
 
-def _cdx_url(url: str) -> str:
-    """Strip protocol prefix for CDX API — it handles canonicalization better without it."""
-    return url.replace("https://", "").replace("http://", "")
-
-
 async def query_cdx_for_url(
     session: aiohttp.ClientSession,
     url: str,
     year: int,
-) -> list[dict]:
-    """Return CDX records for a URL in a given year, sorted by timestamp."""
+    match_type: str = "exact",
+) -> tuple[list[dict], dict | None]:
+    """
+    Return (records, failure_info) for a URL in a given year.
+
+    records is a list of CDX record dicts; empty on failure or no results.
+    failure_info is None on success, or a dict with diagnostic fields on error.
+    """
     params = {
-        "url": _cdx_url(url),
+        "url": url,
         "output": "json",
         "from": f"{year}0101",
         "to": f"{year}1231",
-        "filter": "statuscode:200",
-        "fl": "timestamp,original,statuscode,mimetype,digest",
-        "limit": "10",
+        "fl": "timestamp,original,mimetype,statuscode,digest,length",
+        "filter": ["statuscode:200", "mimetype:text/html"],
         "collapse": "digest",
+        "matchType": match_type,
     }
+    phase = "cdx_lookup"
     try:
-        async with session.get(CDX_API, params=params, timeout=aiohttp.ClientTimeout(total=TIMEOUT), ssl=False) as resp:
+        async with session.get(
+            CDX_API,
+            params=params,
+            timeout=aiohttp.ClientTimeout(total=TIMEOUT),
+            ssl=False,
+        ) as resp:
             if resp.status != 200:
-                return []
+                failure = {
+                    "phase": phase,
+                    "url": url,
+                    "year": year,
+                    "params": params,
+                    "http_status": resp.status,
+                    "exception_type": None,
+                }
+                log.warning(
+                    f"CDX HTTP {resp.status} | url={url} year={year} params={params}"
+                )
+                return [], failure
             data = await resp.json(content_type=None)
             if not data or len(data) < 2:
-                return []
+                return [], None
             headers = data[0]
             records = [dict(zip(headers, row)) for row in data[1:]]
-            return records
+            return records, None
     except Exception as e:
-        log.debug(f"CDX query failed for {url} {year}: {e}")
-        return []
+        failure = {
+            "phase": phase,
+            "url": url,
+            "year": year,
+            "params": params,
+            "http_status": None,
+            "exception_type": type(e).__name__,
+            "exception_msg": str(e),
+        }
+        log.warning(
+            f"CDX {type(e).__name__} | url={url} year={year} params={params} — {e}"
+        )
+        return [], failure
 
 
 async def query_company_year(
@@ -100,39 +129,46 @@ async def query_company_year(
         "timestamp": None,
         "cdx_records": [],
         "tried_urls": [],
+        "failures": [],
         "notes": "",
     }
 
-    # Try manual candidates first
+    # Try manual candidates first (matchType=exact as specified for configured URLs)
     for url in candidates:
-        records = await query_cdx_for_url(session, url, year)
+        records, failure = await query_cdx_for_url(session, url, year, match_type="exact")
+        if failure:
+            result["failures"].append(failure)
         result["tried_urls"].append({"url": url, "source": "manual", "hits": len(records)})
         if records:
             best = _pick_best_record(records)
+            archive_url = f"https://web.archive.org/web/{best['timestamp']}id_/{best['original']}"
             result.update({
                 "selection_status": "manual_primary" if url == candidates[0] else "manual_backup",
                 "selected_url": url,
-                "archive_url": f"https://web.archive.org/web/{best['timestamp']}/{url}",
+                "archive_url": archive_url,
                 "timestamp": best["timestamp"],
-                "cdx_records": records[:3],
+                "cdx_records": records,
             })
             save_json(result, out_path)
             return result
 
-    # Fall back to heuristics
+    # Fall back to heuristics (prefix match makes sense here)
     for url in fallbacks:
         if url in candidates:
             continue
-        records = await query_cdx_for_url(session, url, year)
+        records, failure = await query_cdx_for_url(session, url, year, match_type="exact")
+        if failure:
+            result["failures"].append(failure)
         result["tried_urls"].append({"url": url, "source": "heuristic", "hits": len(records)})
         if records:
             best = _pick_best_record(records)
+            archive_url = f"https://web.archive.org/web/{best['timestamp']}id_/{best['original']}"
             result.update({
                 "selection_status": "heuristic_fallback",
                 "selected_url": url,
-                "archive_url": f"https://web.archive.org/web/{best['timestamp']}/{url}",
+                "archive_url": archive_url,
                 "timestamp": best["timestamp"],
-                "cdx_records": records[:3],
+                "cdx_records": records,
                 "notes": f"No manual candidate had a snapshot; used heuristic path {url}",
             })
             log.warning(f"{ticker} {year}: heuristic fallback used — {url}")
@@ -146,15 +182,17 @@ async def query_company_year(
 
 
 def _pick_best_record(records: list[dict]) -> dict:
-    """Pick the record closest to July 1 (mid-year snapshot preference)."""
-    def mid_year_distance(r):
+    """Pick the record with timestamp closest to June 30 of its year."""
+    def june30_distance(r):
         ts = r["timestamp"]
         try:
             month = int(ts[4:6])
-            return abs(month - 7)
+            day = int(ts[6:8])
+            # Distance in days from June 30 (month 6, day 30)
+            return abs((month - 6) * 30 + (day - 30))
         except Exception:
-            return 12
-    return min(records, key=mid_year_distance)
+            return 999
+    return min(records, key=june30_distance)
 
 
 async def _check_wayback_connectivity(session: aiohttp.ClientSession) -> bool:

@@ -23,22 +23,18 @@ log = setup_logging("download_snapshots")
 
 CONCURRENCY = 5
 TIMEOUT = 45
-WAYBACK_BASE = "https://web.archive.org/web"
-
-# Request raw HTML without Wayback toolbar injection
-RAW_FLAG = "id_"
 
 
 def wayback_raw_url(timestamp: str, original_url: str) -> str:
-    return f"{WAYBACK_BASE}/{timestamp}{RAW_FLAG}/{original_url}"
+    """Construct archive URL using id_ flag to get raw HTML without Wayback toolbar."""
+    return f"https://web.archive.org/web/{timestamp}id_/{original_url}"
 
 
 async def download_one(
     session: aiohttp.ClientSession,
     ticker: str,
     year: int,
-    timestamp: str,
-    original_url: str,
+    archive_url: str,
     force: bool,
 ) -> dict:
     out_path = cache_path("wayback_html", f"{slug(ticker, year)}.html")
@@ -46,30 +42,34 @@ async def download_one(
     if not force and is_cached(out_path):
         return {"ticker": ticker, "year": year, "status": "cached", "path": str(out_path)}
 
-    raw_url = wayback_raw_url(timestamp, original_url)
-
+    phase = "html_download"
     try:
         async with session.get(
-            raw_url,
+            archive_url,
             timeout=aiohttp.ClientTimeout(total=TIMEOUT),
             allow_redirects=True,
             ssl=False,
         ) as resp:
             if resp.status != 200:
-                log.warning(f"{ticker} {year}: HTTP {resp.status} for {raw_url}")
-                return {"ticker": ticker, "year": year, "status": f"http_{resp.status}", "path": None}
+                log.warning(
+                    f"{ticker} {year}: HTTP {resp.status} | phase={phase} url={archive_url}"
+                )
+                return {"ticker": ticker, "year": year, "status": f"http_{resp.status}", "path": None,
+                        "phase": phase, "archive_url": archive_url, "http_status": resp.status}
             html = await resp.text(encoding="utf-8", errors="replace")
             if len(html) < 500:
-                log.warning(f"{ticker} {year}: suspiciously short HTML ({len(html)} chars)")
+                log.warning(f"{ticker} {year}: suspiciously short HTML ({len(html)} chars) for {archive_url}")
                 return {"ticker": ticker, "year": year, "status": "too_short", "path": None}
             save_text(html, out_path)
             return {"ticker": ticker, "year": year, "status": "ok", "path": str(out_path)}
     except asyncio.TimeoutError:
-        log.warning(f"{ticker} {year}: timeout downloading {raw_url}")
-        return {"ticker": ticker, "year": year, "status": "timeout", "path": None}
+        log.warning(f"{ticker} {year}: TimeoutError | phase={phase} url={archive_url}")
+        return {"ticker": ticker, "year": year, "status": "timeout", "path": None,
+                "phase": phase, "archive_url": archive_url, "exception_type": "TimeoutError"}
     except Exception as e:
-        log.warning(f"{ticker} {year}: error — {e}")
-        return {"ticker": ticker, "year": year, "status": f"error: {e}", "path": None}
+        log.warning(f"{ticker} {year}: {type(e).__name__} | phase={phase} url={archive_url} — {e}")
+        return {"ticker": ticker, "year": year, "status": f"error: {type(e).__name__}", "path": None,
+                "phase": phase, "archive_url": archive_url, "exception_type": type(e).__name__}
 
 
 async def run_all(force: bool = False, concurrency: int = CONCURRENCY):
@@ -84,7 +84,8 @@ async def run_all(force: bool = False, concurrency: int = CONCURRENCY):
             cdx_file = cache_path("wayback_cdx", f"{slug(ticker, year)}.json")
             cdx = load_json(cdx_file)
             if cdx and cdx.get("selection_status") not in ("missing", None):
-                to_download.append((ticker, year, cdx["timestamp"], cdx["selected_url"]))
+                # archive_url is pre-built in query_cdx with the id_/ flag
+                to_download.append((ticker, year, cdx["archive_url"]))
 
     log.info(f"Downloading {len(to_download)} HTML snapshots ({concurrency} concurrent)")
 
@@ -93,11 +94,11 @@ async def run_all(force: bool = False, concurrency: int = CONCURRENCY):
 
     connector = aiohttp.TCPConnector(limit=concurrency)
     async with aiohttp.ClientSession(connector=connector) as session:
-        async def bounded(ticker, year, ts, url):
+        async def bounded(ticker, year, archive_url):
             async with sem:
-                return await download_one(session, ticker, year, ts, url, force)
+                return await download_one(session, ticker, year, archive_url, force)
 
-        coros = [bounded(*args) for args in to_download]
+        coros = [bounded(ticker, year, archive_url) for ticker, year, archive_url in to_download]
         for coro in tqdm(asyncio.as_completed(coros), total=len(coros), desc="Downloading HTML"):
             r = await coro
             results.append(r)
