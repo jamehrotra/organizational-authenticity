@@ -146,9 +146,11 @@ def run():
     vol_df.to_csv(vol_path, index=False)
     log.info(f"Values volatility results: {vol_path}")
 
-    # Scatter: about volatility vs proxy volatility
-    plot_data = vol_df.dropna(subset=["about_page_volatility", "proxy_score_volatility"])
-    if len(plot_data) > 3:
+    # Scatter: about volatility vs proxy volatility (requires Part 1 data)
+    scatter_cols = [c for c in ["about_page_volatility", "proxy_score_volatility"] if c in vol_df.columns]
+    has_about_vol = "about_page_volatility" in vol_df.columns and vol_df["about_page_volatility"].notna().any()
+    plot_data = vol_df.dropna(subset=scatter_cols) if scatter_cols else pd.DataFrame()
+    if has_about_vol and len(plot_data) > 3:
         fig, ax = plt.subplots(figsize=(9, 7))
         palette = {s: c for s, c in zip(plot_data["sector"].unique(),
                                          sns.color_palette("tab10", n_colors=plot_data["sector"].nunique()))}

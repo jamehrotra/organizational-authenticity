@@ -1,0 +1,451 @@
+ticker,company_name,sector,year,authenticity_score,has_both_sources,top_stated_themes,top_lived_themes,largest_theme_gap
+AAPL,Apple,Technology,2016,,False,,,none
+AAPL,Apple,Technology,2017,,False,,,none
+AAPL,Apple,Technology,2018,,False,,,none
+AAPL,Apple,Technology,2019,,False,,,none
+AAPL,Apple,Technology,2020,,False,,,none
+AAPL,Apple,Technology,2021,,False,,,none
+AAPL,Apple,Technology,2022,,False,,,none
+AAPL,Apple,Technology,2023,,False,,,none
+AAPL,Apple,Technology,2024,,False,,,none
+ABBV,AbbVie,Healthcare,2016,,False,,,none
+ABBV,AbbVie,Healthcare,2017,,False,,,none
+ABBV,AbbVie,Healthcare,2018,,False,,,none
+ABBV,AbbVie,Healthcare,2019,,False,,,none
+ABBV,AbbVie,Healthcare,2020,,False,,,none
+ABBV,AbbVie,Healthcare,2021,,False,,,none
+ABBV,AbbVie,Healthcare,2022,,False,,,none
+ABBV,AbbVie,Healthcare,2023,,False,,,none
+ABBV,AbbVie,Healthcare,2024,,False,,,none
+ABT,Abbott Laboratories,Healthcare,2016,,False,,,none
+ABT,Abbott Laboratories,Healthcare,2017,,False,,,none
+ABT,Abbott Laboratories,Healthcare,2018,,False,,,none
+ABT,Abbott Laboratories,Healthcare,2019,,False,,,none
+ABT,Abbott Laboratories,Healthcare,2020,,False,,,none
+ABT,Abbott Laboratories,Healthcare,2021,,False,,,none
+ABT,Abbott Laboratories,Healthcare,2022,,False,,,none
+ABT,Abbott Laboratories,Healthcare,2023,,False,,,none
+ABT,Abbott Laboratories,Healthcare,2024,,False,,,none
+AMZN,Amazon,Consumer Discretionary,2016,,False,,,none
+AMZN,Amazon,Consumer Discretionary,2017,,False,,,none
+AMZN,Amazon,Consumer Discretionary,2018,,False,,,none
+AMZN,Amazon,Consumer Discretionary,2019,,False,,,none
+AMZN,Amazon,Consumer Discretionary,2020,,False,,,none
+AMZN,Amazon,Consumer Discretionary,2021,,False,,,none
+AMZN,Amazon,Consumer Discretionary,2022,,False,,,none
+AMZN,Amazon,Consumer Discretionary,2023,,False,,,none
+AMZN,Amazon,Consumer Discretionary,2024,,False,,,none
+AVGO,Broadcom,Technology,2016,,False,,,none
+AVGO,Broadcom,Technology,2017,,False,,,none
+AVGO,Broadcom,Technology,2018,,False,,,none
+AVGO,Broadcom,Technology,2019,,False,,,none
+AVGO,Broadcom,Technology,2020,,False,,,none
+AVGO,Broadcom,Technology,2021,,False,,,none
+AVGO,Broadcom,Technology,2022,,False,,,none
+AVGO,Broadcom,Technology,2023,,False,,,none
+AVGO,Broadcom,Technology,2024,,False,,,none
+AXP,American Express,Financials,2016,,False,,,none
+AXP,American Express,Financials,2017,,False,,,none
+AXP,American Express,Financials,2018,,False,,,none
+AXP,American Express,Financials,2019,,False,,,none
+AXP,American Express,Financials,2020,,False,,,none
+AXP,American Express,Financials,2021,,False,,,none
+AXP,American Express,Financials,2022,,False,,,none
+AXP,American Express,Financials,2023,,False,,,none
+AXP,American Express,Financials,2024,,False,,,none
+BAC,Bank of America,Financials,2016,,False,,,none
+BAC,Bank of America,Financials,2017,,False,,,none
+BAC,Bank of America,Financials,2018,,False,,,none
+BAC,Bank of America,Financials,2019,,False,,,none
+BAC,Bank of America,Financials,2020,,False,,,none
+BAC,Bank of America,Financials,2021,,False,,,none
+BAC,Bank of America,Financials,2022,,False,,,none
+BAC,Bank of America,Financials,2023,,False,,,none
+BAC,Bank of America,Financials,2024,,False,,,none
+BLK,BlackRock,Financials,2016,,False,,,none
+BLK,BlackRock,Financials,2017,,False,,,none
+BLK,BlackRock,Financials,2018,,False,,,none
+BLK,BlackRock,Financials,2019,,False,,,none
+BLK,BlackRock,Financials,2020,,False,,,none
+BLK,BlackRock,Financials,2021,,False,,,none
+BLK,BlackRock,Financials,2022,,False,,,none
+BLK,BlackRock,Financials,2023,,False,,,none
+BLK,BlackRock,Financials,2024,,False,,,none
+BMY,Bristol-Myers Squibb,Healthcare,2016,,False,,,none
+BMY,Bristol-Myers Squibb,Healthcare,2017,,False,,,none
+BMY,Bristol-Myers Squibb,Healthcare,2018,,False,,,none
+BMY,Bristol-Myers Squibb,Healthcare,2019,,False,,,none
+BMY,Bristol-Myers Squibb,Healthcare,2020,,False,,,none
+BMY,Bristol-Myers Squibb,Healthcare,2021,,False,,,none
+BMY,Bristol-Myers Squibb,Healthcare,2022,,False,,,none
+BMY,Bristol-Myers Squibb,Healthcare,2023,,False,,,none
+BMY,Bristol-Myers Squibb,Healthcare,2024,,False,,,none
+BRK.B,Berkshire Hathaway,Financials,2016,,False,,,none
+BRK.B,Berkshire Hathaway,Financials,2017,,False,,,none
+BRK.B,Berkshire Hathaway,Financials,2018,,False,,,none
+BRK.B,Berkshire Hathaway,Financials,2019,,False,,,none
+BRK.B,Berkshire Hathaway,Financials,2020,,False,,,none
+BRK.B,Berkshire Hathaway,Financials,2021,,False,,,none
+BRK.B,Berkshire Hathaway,Financials,2022,,False,,,none
+BRK.B,Berkshire Hathaway,Financials,2023,,False,,,none
+BRK.B,Berkshire Hathaway,Financials,2024,,False,,,none
+C,Citigroup,Financials,2016,,False,,,none
+C,Citigroup,Financials,2017,,False,,,none
+C,Citigroup,Financials,2018,,False,,,none
+C,Citigroup,Financials,2019,,False,,,none
+C,Citigroup,Financials,2020,,False,,,none
+C,Citigroup,Financials,2021,,False,,,none
+C,Citigroup,Financials,2022,,False,,,none
+C,Citigroup,Financials,2023,,False,,,none
+C,Citigroup,Financials,2024,,False,,,none
+COP,ConocoPhillips,Energy,2016,,False,,,none
+COP,ConocoPhillips,Energy,2017,,False,,,none
+COP,ConocoPhillips,Energy,2018,,False,,,none
+COP,ConocoPhillips,Energy,2019,,False,,,none
+COP,ConocoPhillips,Energy,2020,,False,,,none
+COP,ConocoPhillips,Energy,2021,,False,,,none
+COP,ConocoPhillips,Energy,2022,,False,,,none
+COP,ConocoPhillips,Energy,2023,,False,,,none
+COP,ConocoPhillips,Energy,2024,,False,,,none
+CRM,Salesforce,Technology,2016,,False,,,none
+CRM,Salesforce,Technology,2017,,False,,,none
+CRM,Salesforce,Technology,2018,,False,,,none
+CRM,Salesforce,Technology,2019,,False,,,none
+CRM,Salesforce,Technology,2020,,False,,,none
+CRM,Salesforce,Technology,2021,,False,,,none
+CRM,Salesforce,Technology,2022,,False,,,none
+CRM,Salesforce,Technology,2023,,False,,,none
+CRM,Salesforce,Technology,2024,,False,,,none
+CVX,Chevron,Energy,2016,,False,,,none
+CVX,Chevron,Energy,2017,,False,,,none
+CVX,Chevron,Energy,2018,,False,,,none
+CVX,Chevron,Energy,2019,,False,,,none
+CVX,Chevron,Energy,2020,,False,,,none
+CVX,Chevron,Energy,2021,,False,,,none
+CVX,Chevron,Energy,2022,,False,,,none
+CVX,Chevron,Energy,2023,,False,,,none
+CVX,Chevron,Energy,2024,,False,,,none
+EOG,EOG Resources,Energy,2016,,False,,,none
+EOG,EOG Resources,Energy,2017,,False,,,none
+EOG,EOG Resources,Energy,2018,,False,,,none
+EOG,EOG Resources,Energy,2019,,False,,,none
+EOG,EOG Resources,Energy,2020,,False,,,none
+EOG,EOG Resources,Energy,2021,,False,,,none
+EOG,EOG Resources,Energy,2022,,False,,,none
+EOG,EOG Resources,Energy,2023,,False,,,none
+EOG,EOG Resources,Energy,2024,,False,,,none
+F,Ford Motor,Consumer Discretionary,2016,,False,,,none
+F,Ford Motor,Consumer Discretionary,2017,,False,,,none
+F,Ford Motor,Consumer Discretionary,2018,,False,,,none
+F,Ford Motor,Consumer Discretionary,2019,,False,,,none
+F,Ford Motor,Consumer Discretionary,2020,,False,,,none
+F,Ford Motor,Consumer Discretionary,2021,,False,,,none
+F,Ford Motor,Consumer Discretionary,2022,,False,,,none
+F,Ford Motor,Consumer Discretionary,2023,,False,,,none
+F,Ford Motor,Consumer Discretionary,2024,,False,,,none
+GOOGL,Alphabet,Technology,2016,,False,,,none
+GOOGL,Alphabet,Technology,2017,,False,,,none
+GOOGL,Alphabet,Technology,2018,,False,,,none
+GOOGL,Alphabet,Technology,2019,,False,,,none
+GOOGL,Alphabet,Technology,2020,,False,,,none
+GOOGL,Alphabet,Technology,2021,,False,,,none
+GOOGL,Alphabet,Technology,2022,,False,,,none
+GOOGL,Alphabet,Technology,2023,,False,,,none
+GOOGL,Alphabet,Technology,2024,,False,,,none
+GS,Goldman Sachs,Financials,2016,,False,,,none
+GS,Goldman Sachs,Financials,2017,,False,,,none
+GS,Goldman Sachs,Financials,2018,,False,,,none
+GS,Goldman Sachs,Financials,2019,,False,,,none
+GS,Goldman Sachs,Financials,2020,,False,,,none
+GS,Goldman Sachs,Financials,2021,,False,,,none
+GS,Goldman Sachs,Financials,2022,,False,,,none
+GS,Goldman Sachs,Financials,2023,,False,,,none
+GS,Goldman Sachs,Financials,2024,,False,,,none
+HAL,Halliburton,Energy,2016,,False,,,none
+HAL,Halliburton,Energy,2017,,False,,,none
+HAL,Halliburton,Energy,2018,,False,,,none
+HAL,Halliburton,Energy,2019,,False,,,none
+HAL,Halliburton,Energy,2020,,False,,,none
+HAL,Halliburton,Energy,2021,,False,,,none
+HAL,Halliburton,Energy,2022,,False,,,none
+HAL,Halliburton,Energy,2023,,False,,,none
+HAL,Halliburton,Energy,2024,,False,,,none
+HD,Home Depot,Consumer Discretionary,2016,,False,,,none
+HD,Home Depot,Consumer Discretionary,2017,,False,,,none
+HD,Home Depot,Consumer Discretionary,2018,,False,,,none
+HD,Home Depot,Consumer Discretionary,2019,,False,,,none
+HD,Home Depot,Consumer Discretionary,2020,,False,,,none
+HD,Home Depot,Consumer Discretionary,2021,,False,,,none
+HD,Home Depot,Consumer Discretionary,2022,,False,,,none
+HD,Home Depot,Consumer Discretionary,2023,,False,,,none
+HD,Home Depot,Consumer Discretionary,2024,,False,,,none
+IBM,IBM,Technology,2016,,False,,,none
+IBM,IBM,Technology,2017,,False,,,none
+IBM,IBM,Technology,2018,,False,,,none
+IBM,IBM,Technology,2019,,False,,,none
+IBM,IBM,Technology,2020,,False,,,none
+IBM,IBM,Technology,2021,,False,,,none
+IBM,IBM,Technology,2022,,False,,,none
+IBM,IBM,Technology,2023,,False,,,none
+IBM,IBM,Technology,2024,,False,,,none
+INTC,Intel,Technology,2016,,False,,,none
+INTC,Intel,Technology,2017,,False,,,none
+INTC,Intel,Technology,2018,,False,,,none
+INTC,Intel,Technology,2019,,False,,,none
+INTC,Intel,Technology,2020,,False,,,none
+INTC,Intel,Technology,2021,,False,,,none
+INTC,Intel,Technology,2022,,False,,,none
+INTC,Intel,Technology,2023,,False,,,none
+INTC,Intel,Technology,2024,,False,,,none
+JNJ,Johnson & Johnson,Healthcare,2016,,False,,,none
+JNJ,Johnson & Johnson,Healthcare,2017,,False,,,none
+JNJ,Johnson & Johnson,Healthcare,2018,,False,,,none
+JNJ,Johnson & Johnson,Healthcare,2019,,False,,,none
+JNJ,Johnson & Johnson,Healthcare,2020,,False,,,none
+JNJ,Johnson & Johnson,Healthcare,2021,,False,,,none
+JNJ,Johnson & Johnson,Healthcare,2022,,False,,,none
+JNJ,Johnson & Johnson,Healthcare,2023,,False,,,none
+JNJ,Johnson & Johnson,Healthcare,2024,,False,,,none
+JPM,JPMorgan Chase,Financials,2016,,False,,,none
+JPM,JPMorgan Chase,Financials,2017,,False,,,none
+JPM,JPMorgan Chase,Financials,2018,,False,,,none
+JPM,JPMorgan Chase,Financials,2019,,False,,,none
+JPM,JPMorgan Chase,Financials,2020,,False,,,none
+JPM,JPMorgan Chase,Financials,2021,,False,,,none
+JPM,JPMorgan Chase,Financials,2022,,False,,,none
+JPM,JPMorgan Chase,Financials,2023,,False,,,none
+JPM,JPMorgan Chase,Financials,2024,,False,,,none
+LLY,Eli Lilly,Healthcare,2016,,False,,,none
+LLY,Eli Lilly,Healthcare,2017,,False,,,none
+LLY,Eli Lilly,Healthcare,2018,,False,,,none
+LLY,Eli Lilly,Healthcare,2019,,False,,,none
+LLY,Eli Lilly,Healthcare,2020,,False,,,none
+LLY,Eli Lilly,Healthcare,2021,,False,,,none
+LLY,Eli Lilly,Healthcare,2022,,False,,,none
+LLY,Eli Lilly,Healthcare,2023,,False,,,none
+LLY,Eli Lilly,Healthcare,2024,,False,,,none
+LOW,Lowe's,Consumer Discretionary,2016,,False,,,none
+LOW,Lowe's,Consumer Discretionary,2017,,False,,,none
+LOW,Lowe's,Consumer Discretionary,2018,,False,,,none
+LOW,Lowe's,Consumer Discretionary,2019,,False,,,none
+LOW,Lowe's,Consumer Discretionary,2020,,False,,,none
+LOW,Lowe's,Consumer Discretionary,2021,,False,,,none
+LOW,Lowe's,Consumer Discretionary,2022,,False,,,none
+LOW,Lowe's,Consumer Discretionary,2023,,False,,,none
+LOW,Lowe's,Consumer Discretionary,2024,,False,,,none
+MCD,McDonald's,Consumer Discretionary,2016,,False,,,none
+MCD,McDonald's,Consumer Discretionary,2017,,False,,,none
+MCD,McDonald's,Consumer Discretionary,2018,,False,,,none
+MCD,McDonald's,Consumer Discretionary,2019,,False,,,none
+MCD,McDonald's,Consumer Discretionary,2020,,False,,,none
+MCD,McDonald's,Consumer Discretionary,2021,,False,,,none
+MCD,McDonald's,Consumer Discretionary,2022,,False,,,none
+MCD,McDonald's,Consumer Discretionary,2023,,False,,,none
+MCD,McDonald's,Consumer Discretionary,2024,,False,,,none
+MDT,Medtronic,Healthcare,2016,,False,,,none
+MDT,Medtronic,Healthcare,2017,,False,,,none
+MDT,Medtronic,Healthcare,2018,,False,,,none
+MDT,Medtronic,Healthcare,2019,,False,,,none
+MDT,Medtronic,Healthcare,2020,,False,,,none
+MDT,Medtronic,Healthcare,2021,,False,,,none
+MDT,Medtronic,Healthcare,2022,,False,,,none
+MDT,Medtronic,Healthcare,2023,,False,,,none
+MDT,Medtronic,Healthcare,2024,,False,,,none
+META,Meta Platforms,Technology,2016,,False,,,none
+META,Meta Platforms,Technology,2017,,False,,,none
+META,Meta Platforms,Technology,2018,,False,,,none
+META,Meta Platforms,Technology,2019,,False,,,none
+META,Meta Platforms,Technology,2020,,False,,,none
+META,Meta Platforms,Technology,2021,,False,,,none
+META,Meta Platforms,Technology,2022,,False,,governance_accountability|community_social_impact|innovation,none
+META,Meta Platforms,Technology,2023,,False,,governance_accountability|safety_quality|financial_performance,none
+META,Meta Platforms,Technology,2024,,False,,,none
+MPC,Marathon Petroleum,Energy,2016,,False,,,none
+MPC,Marathon Petroleum,Energy,2017,,False,,,none
+MPC,Marathon Petroleum,Energy,2018,,False,,,none
+MPC,Marathon Petroleum,Energy,2019,,False,,,none
+MPC,Marathon Petroleum,Energy,2020,,False,,,none
+MPC,Marathon Petroleum,Energy,2021,,False,,,none
+MPC,Marathon Petroleum,Energy,2022,,False,,,none
+MPC,Marathon Petroleum,Energy,2023,,False,,,none
+MPC,Marathon Petroleum,Energy,2024,,False,,,none
+MRK,Merck,Healthcare,2016,,False,,,none
+MRK,Merck,Healthcare,2017,,False,,,none
+MRK,Merck,Healthcare,2018,,False,,,none
+MRK,Merck,Healthcare,2019,,False,,,none
+MRK,Merck,Healthcare,2020,,False,,,none
+MRK,Merck,Healthcare,2021,,False,,,none
+MRK,Merck,Healthcare,2022,,False,,,none
+MRK,Merck,Healthcare,2023,,False,,,none
+MRK,Merck,Healthcare,2024,,False,,,none
+MS,Morgan Stanley,Financials,2016,,False,,,none
+MS,Morgan Stanley,Financials,2017,,False,,,none
+MS,Morgan Stanley,Financials,2018,,False,,,none
+MS,Morgan Stanley,Financials,2019,,False,,,none
+MS,Morgan Stanley,Financials,2020,,False,,,none
+MS,Morgan Stanley,Financials,2021,,False,,,none
+MS,Morgan Stanley,Financials,2022,,False,,,none
+MS,Morgan Stanley,Financials,2023,,False,,,none
+MS,Morgan Stanley,Financials,2024,,False,,,none
+MSFT,Microsoft,Technology,2016,,False,,,none
+MSFT,Microsoft,Technology,2017,,False,,,none
+MSFT,Microsoft,Technology,2018,,False,,,none
+MSFT,Microsoft,Technology,2019,,False,,,none
+MSFT,Microsoft,Technology,2020,,False,,,none
+MSFT,Microsoft,Technology,2021,,False,,,none
+MSFT,Microsoft,Technology,2022,,False,,,none
+MSFT,Microsoft,Technology,2023,,False,,,none
+MSFT,Microsoft,Technology,2024,,False,,,none
+NKE,Nike,Consumer Discretionary,2016,,False,,,none
+NKE,Nike,Consumer Discretionary,2017,,False,,,none
+NKE,Nike,Consumer Discretionary,2018,,False,,,none
+NKE,Nike,Consumer Discretionary,2019,,False,,,none
+NKE,Nike,Consumer Discretionary,2020,,False,,,none
+NKE,Nike,Consumer Discretionary,2021,,False,,,none
+NKE,Nike,Consumer Discretionary,2022,,False,,,none
+NKE,Nike,Consumer Discretionary,2023,,False,,,none
+NKE,Nike,Consumer Discretionary,2024,,False,,,none
+NVDA,NVIDIA,Technology,2016,,False,,,none
+NVDA,NVIDIA,Technology,2017,,False,,,none
+NVDA,NVIDIA,Technology,2018,,False,,,none
+NVDA,NVIDIA,Technology,2019,,False,,,none
+NVDA,NVIDIA,Technology,2020,,False,,,none
+NVDA,NVIDIA,Technology,2021,,False,,,none
+NVDA,NVIDIA,Technology,2022,,False,,,none
+NVDA,NVIDIA,Technology,2023,,False,,,none
+NVDA,NVIDIA,Technology,2024,,False,,,none
+ORCL,Oracle,Technology,2016,,False,,,none
+ORCL,Oracle,Technology,2017,,False,,,none
+ORCL,Oracle,Technology,2018,,False,,,none
+ORCL,Oracle,Technology,2019,,False,,,none
+ORCL,Oracle,Technology,2020,,False,,,none
+ORCL,Oracle,Technology,2021,,False,,,none
+ORCL,Oracle,Technology,2022,,False,,,none
+ORCL,Oracle,Technology,2023,,False,,,none
+ORCL,Oracle,Technology,2024,,False,,,none
+OXY,Occidental Petroleum,Energy,2016,,False,,,none
+OXY,Occidental Petroleum,Energy,2017,,False,,,none
+OXY,Occidental Petroleum,Energy,2018,,False,,,none
+OXY,Occidental Petroleum,Energy,2019,,False,,,none
+OXY,Occidental Petroleum,Energy,2020,,False,,,none
+OXY,Occidental Petroleum,Energy,2021,,False,,,none
+OXY,Occidental Petroleum,Energy,2022,,False,,,none
+OXY,Occidental Petroleum,Energy,2023,,False,,,none
+OXY,Occidental Petroleum,Energy,2024,,False,,,none
+PFE,Pfizer,Healthcare,2016,,False,,,none
+PFE,Pfizer,Healthcare,2017,,False,,,none
+PFE,Pfizer,Healthcare,2018,,False,,,none
+PFE,Pfizer,Healthcare,2019,,False,,,none
+PFE,Pfizer,Healthcare,2020,,False,,,none
+PFE,Pfizer,Healthcare,2021,,False,,,none
+PFE,Pfizer,Healthcare,2022,,False,,,none
+PFE,Pfizer,Healthcare,2023,,False,,,none
+PFE,Pfizer,Healthcare,2024,,False,,,none
+PSX,Phillips 66,Energy,2016,,False,,,none
+PSX,Phillips 66,Energy,2017,,False,,,none
+PSX,Phillips 66,Energy,2018,,False,,,none
+PSX,Phillips 66,Energy,2019,,False,,,none
+PSX,Phillips 66,Energy,2020,,False,,,none
+PSX,Phillips 66,Energy,2021,,False,,,none
+PSX,Phillips 66,Energy,2022,,False,,,none
+PSX,Phillips 66,Energy,2023,,False,,,none
+PSX,Phillips 66,Energy,2024,,False,,,none
+SBUX,Starbucks,Consumer Discretionary,2016,,False,,,none
+SBUX,Starbucks,Consumer Discretionary,2017,,False,,,none
+SBUX,Starbucks,Consumer Discretionary,2018,,False,,,none
+SBUX,Starbucks,Consumer Discretionary,2019,,False,,,none
+SBUX,Starbucks,Consumer Discretionary,2020,,False,,,none
+SBUX,Starbucks,Consumer Discretionary,2021,,False,,,none
+SBUX,Starbucks,Consumer Discretionary,2022,,False,,,none
+SBUX,Starbucks,Consumer Discretionary,2023,,False,,,none
+SBUX,Starbucks,Consumer Discretionary,2024,,False,,,none
+SCHW,Charles Schwab,Financials,2016,,False,,,none
+SCHW,Charles Schwab,Financials,2017,,False,,,none
+SCHW,Charles Schwab,Financials,2018,,False,,,none
+SCHW,Charles Schwab,Financials,2019,,False,,,none
+SCHW,Charles Schwab,Financials,2020,,False,,,none
+SCHW,Charles Schwab,Financials,2021,,False,,,none
+SCHW,Charles Schwab,Financials,2022,,False,,,none
+SCHW,Charles Schwab,Financials,2023,,False,,,none
+SCHW,Charles Schwab,Financials,2024,,False,,,none
+SLB,SLB,Energy,2016,,False,,,none
+SLB,SLB,Energy,2017,,False,,,none
+SLB,SLB,Energy,2018,,False,,,none
+SLB,SLB,Energy,2019,,False,,,none
+SLB,SLB,Energy,2020,,False,,,none
+SLB,SLB,Energy,2021,,False,,,none
+SLB,SLB,Energy,2022,,False,,,none
+SLB,SLB,Energy,2023,,False,,,none
+SLB,SLB,Energy,2024,,False,,,none
+TGT,Target,Consumer Discretionary,2016,,False,,,none
+TGT,Target,Consumer Discretionary,2017,,False,,,none
+TGT,Target,Consumer Discretionary,2018,,False,,,none
+TGT,Target,Consumer Discretionary,2019,,False,,,none
+TGT,Target,Consumer Discretionary,2020,,False,,,none
+TGT,Target,Consumer Discretionary,2021,,False,,,none
+TGT,Target,Consumer Discretionary,2022,,False,,,none
+TGT,Target,Consumer Discretionary,2023,,False,,,none
+TGT,Target,Consumer Discretionary,2024,,False,,,none
+TJX,TJX Companies,Consumer Discretionary,2016,,False,,,none
+TJX,TJX Companies,Consumer Discretionary,2017,,False,,,none
+TJX,TJX Companies,Consumer Discretionary,2018,,False,,,none
+TJX,TJX Companies,Consumer Discretionary,2019,,False,,,none
+TJX,TJX Companies,Consumer Discretionary,2020,,False,,,none
+TJX,TJX Companies,Consumer Discretionary,2021,,False,,,none
+TJX,TJX Companies,Consumer Discretionary,2022,,False,,,none
+TJX,TJX Companies,Consumer Discretionary,2023,,False,,,none
+TJX,TJX Companies,Consumer Discretionary,2024,,False,,,none
+TMO,Thermo Fisher Scientific,Healthcare,2016,,False,,,none
+TMO,Thermo Fisher Scientific,Healthcare,2017,,False,,,none
+TMO,Thermo Fisher Scientific,Healthcare,2018,,False,,,none
+TMO,Thermo Fisher Scientific,Healthcare,2019,,False,,,none
+TMO,Thermo Fisher Scientific,Healthcare,2020,,False,,,none
+TMO,Thermo Fisher Scientific,Healthcare,2021,,False,,,none
+TMO,Thermo Fisher Scientific,Healthcare,2022,,False,,,none
+TMO,Thermo Fisher Scientific,Healthcare,2023,,False,,,none
+TMO,Thermo Fisher Scientific,Healthcare,2024,,False,,,none
+TSLA,Tesla,Consumer Discretionary,2016,,False,,,none
+TSLA,Tesla,Consumer Discretionary,2017,,False,,,none
+TSLA,Tesla,Consumer Discretionary,2018,,False,,,none
+TSLA,Tesla,Consumer Discretionary,2019,,False,,,none
+TSLA,Tesla,Consumer Discretionary,2020,,False,,,none
+TSLA,Tesla,Consumer Discretionary,2021,,False,,,none
+TSLA,Tesla,Consumer Discretionary,2022,,False,,,none
+TSLA,Tesla,Consumer Discretionary,2023,,False,,,none
+TSLA,Tesla,Consumer Discretionary,2024,,False,,,none
+UNH,UnitedHealth Group,Healthcare,2016,,False,,,none
+UNH,UnitedHealth Group,Healthcare,2017,,False,,,none
+UNH,UnitedHealth Group,Healthcare,2018,,False,,,none
+UNH,UnitedHealth Group,Healthcare,2019,,False,,,none
+UNH,UnitedHealth Group,Healthcare,2020,,False,,,none
+UNH,UnitedHealth Group,Healthcare,2021,,False,,,none
+UNH,UnitedHealth Group,Healthcare,2022,,False,,,none
+UNH,UnitedHealth Group,Healthcare,2023,,False,,,none
+UNH,UnitedHealth Group,Healthcare,2024,,False,,,none
+VLO,Valero Energy,Energy,2016,,False,,,none
+VLO,Valero Energy,Energy,2017,,False,,,none
+VLO,Valero Energy,Energy,2018,,False,,,none
+VLO,Valero Energy,Energy,2019,,False,,,none
+VLO,Valero Energy,Energy,2020,,False,,,none
+VLO,Valero Energy,Energy,2021,,False,,,none
+VLO,Valero Energy,Energy,2022,,False,,,none
+VLO,Valero Energy,Energy,2023,,False,,,none
+VLO,Valero Energy,Energy,2024,,False,,,none
+WFC,Wells Fargo,Financials,2016,,False,,,none
+WFC,Wells Fargo,Financials,2017,,False,,,none
+WFC,Wells Fargo,Financials,2018,,False,,,none
+WFC,Wells Fargo,Financials,2019,,False,,,none
+WFC,Wells Fargo,Financials,2020,,False,,,none
+WFC,Wells Fargo,Financials,2021,,False,,,none
+WFC,Wells Fargo,Financials,2022,,False,,,none
+WFC,Wells Fargo,Financials,2023,,False,,,none
+WFC,Wells Fargo,Financials,2024,,False,,,none
+XOM,ExxonMobil,Energy,2016,,False,,,none
+XOM,ExxonMobil,Energy,2017,,False,,,none
+XOM,ExxonMobil,Energy,2018,,False,,,none
+XOM,ExxonMobil,Energy,2019,,False,,,none
+XOM,ExxonMobil,Energy,2020,,False,,,none
+XOM,ExxonMobil,Energy,2021,,False,,,none
+XOM,ExxonMobil,Energy,2022,,False,,,none
+XOM,ExxonMobil,Energy,2023,,False,,,none
+XOM,ExxonMobil,Energy,2024,,False,,,none

@@ -62,8 +62,12 @@ def run():
 
     rows = []
     for _, row in vectors.iterrows():
-        about_vec = np.array([row.get(f"about_{t}", 0) or 0 for t in THEME_SHORT], dtype=float)
-        proxy_vec = np.array([row.get(f"proxy_{t}", 0) or 0 for t in THEME_SHORT], dtype=float)
+        about_vec = np.nan_to_num(
+            np.array([row.get(f"about_{t}", 0) for t in THEME_SHORT], dtype=float), nan=0.0
+        )
+        proxy_vec = np.nan_to_num(
+            np.array([row.get(f"proxy_{t}", 0) for t in THEME_SHORT], dtype=float), nan=0.0
+        )
 
         score = cosine_sim(about_vec, proxy_vec)
 

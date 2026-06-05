@@ -56,17 +56,27 @@ def load_theme_vector(row: pd.Series, prefix: str = "") -> np.ndarray:
 
 
 def run():
-    part1 = pd.read_csv(processed_path("part1_dataset.csv"))
     part2 = pd.read_csv(processed_path("part2_dataset.csv"))
 
-    # Merge on ticker + year
+    part1_path = processed_path("part1_dataset.csv")
+    if part1_path.exists():
+        part1 = pd.read_csv(part1_path)
+        log.info("Part 1 dataset loaded.")
+    else:
+        log.warning("part1_dataset.csv not found — running with proxy data only (Part 1 blocked).")
+        part1 = pd.DataFrame(columns=["ticker", "company_name", "sector", "year", "selection_status"] + THEME_COLS)
+
+    # Merge on ticker + year — outer so Part 2-only rows are retained when Part 1 is absent
     merged = pd.merge(
         part1[["ticker", "company_name", "sector", "year", "selection_status"] + THEME_COLS],
-        part2[["ticker", "year"] + THEME_COLS],
+        part2[["ticker", "company_name", "sector", "year"] + THEME_COLS],
         on=["ticker", "year"],
         suffixes=("_about", "_proxy"),
         how="outer",
     )
+    # Fill company metadata from whichever side has it
+    merged["company_name"] = merged["company_name_about"].combine_first(merged["company_name_proxy"])
+    merged["sector"] = merged["sector_about"].combine_first(merged["sector_proxy"])
 
     rows = []
     for _, row in merged.iterrows():
@@ -85,8 +95,8 @@ def run():
 
         out = {
             "ticker": row["ticker"],
-            "company_name": row.get("company_name", ""),
-            "sector": row.get("sector", ""),
+            "company_name": row.get("company_name") or row.get("company_name_proxy", ""),
+            "sector": row.get("sector") or row.get("sector_proxy", ""),
             "year": row["year"],
             "about_has_data": bool(about_vec.sum() > 0),
             "proxy_has_data": bool(proxy_vec.sum() > 0),

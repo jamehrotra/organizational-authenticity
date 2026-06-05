@@ -26,8 +26,8 @@ def get_client() -> anthropic.Anthropic:
 
 
 @retry(
-    stop=stop_after_attempt(4),
-    wait=wait_exponential(multiplier=1, min=4, max=60),
+    stop=stop_after_attempt(6),
+    wait=wait_exponential(multiplier=2, min=30, max=120),
     reraise=True,
 )
 def call_claude(
