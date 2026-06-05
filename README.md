@@ -4,6 +4,20 @@ A reproducible Python pipeline measuring alignment between what S&P 500 companie
 say they value (About Us pages) and what their formal disclosures suggest they
 actually prioritize (SEC proxy statements).
 
+## Troubleshooting
+
+**`web.archive.org` unreachable (WinError 121 / connection timeout):**
+The Wayback Machine CDX API can be blocked by some corporate/campus networks or temporarily
+rate-limited. If the `cdx` stage fails with connection timeouts:
+1. Try from a different network (home network, mobile hotspot, VPN)
+2. Check if `curl https://web.archive.org` works in your terminal
+3. The pipeline will detect this and fail fast with a clear error message
+4. All other stages (SEC EDGAR, LLM analysis, index) can run independently
+
+**BRK.B / Berkshire Hathaway on EDGAR:**
+EDGAR uses `BRK-B` (not `BRK.B`) as the ticker. The pipeline handles this automatically
+via the `EDGAR_TICKER_MAP` in `fetch_sec_filings.py`.
+
 ## Quick Start
 
 ```bash

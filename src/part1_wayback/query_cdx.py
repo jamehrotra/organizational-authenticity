@@ -157,6 +157,23 @@ def _pick_best_record(records: list[dict]) -> dict:
     return min(records, key=mid_year_distance)
 
 
+async def _check_wayback_connectivity(session: aiohttp.ClientSession) -> bool:
+    """Quick connectivity check — returns False if web.archive.org is unreachable."""
+    try:
+        async with session.get(
+            CDX_API,
+            params={"url": "example.com", "output": "json", "limit": "1"},
+            timeout=aiohttp.ClientTimeout(total=15),
+            ssl=False,
+        ) as resp:
+            return resp.status in (200, 404)
+    except Exception as e:
+        log.error(f"web.archive.org is unreachable: {e}")
+        log.error("Cannot run CDX stage. Check network connectivity to web.archive.org.")
+        log.error("Try running again later or from a different network.")
+        return False
+
+
 async def run_all(force: bool = False):
     df = load_about_candidates()
     years = years_range()
@@ -169,6 +186,9 @@ async def run_all(force: bool = False):
 
     connector = aiohttp.TCPConnector(limit=CONCURRENCY)
     async with aiohttp.ClientSession(connector=connector) as session:
+        if not await _check_wayback_connectivity(session):
+            return []
+
         async def bounded(row, year):
             async with sem:
                 return await query_company_year(session, row["ticker"], row, year, force)
