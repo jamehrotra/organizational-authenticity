@@ -46,13 +46,11 @@ def run_stage(name: str, force: bool):
 
     if name == "cdx":
         from src.part1_wayback.query_cdx import run_all
-        import asyncio
-        asyncio.run(run_all(force=force))
+        run_all(force=force)
 
     elif name == "download":
         from src.part1_wayback.download_snapshots import run_all
-        import asyncio
-        asyncio.run(run_all(force=force))
+        run_all(force=force)
 
     elif name == "extract":
         from src.part1_wayback.extract_about_text import run_all

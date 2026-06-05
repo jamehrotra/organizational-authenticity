@@ -4,16 +4,16 @@ Stage 2: Download raw archived HTML for each selected snapshot.
 Reads CDX result files from data/raw/wayback_cdx/ and downloads HTML
 to data/raw/wayback_html/<ticker>_<year>.html. Skips already-cached files.
 
+Uses synchronous requests (not aiohttp) for reliability on Windows.
+
 Usage:
-    python -m src.part1_wayback.download_snapshots [--force] [--concurrency 5]
+    python -m src.part1_wayback.download_snapshots [--force]
 """
 
 import argparse
-import asyncio
-import re
-from pathlib import Path
+import time
 
-import aiohttp
+import requests
 from tqdm import tqdm
 
 from src.common.io import cache_path, is_cached, save_text, load_json
@@ -21,8 +21,18 @@ from src.common.utils import setup_logging, load_about_candidates, years_range, 
 
 log = setup_logging("download_snapshots")
 
-CONCURRENCY = 5
 TIMEOUT = 45
+DOWNLOAD_DELAY = 1.5  # seconds between downloads
+
+_session = None
+
+
+def get_session() -> requests.Session:
+    global _session
+    if _session is None:
+        _session = requests.Session()
+        _session.headers["User-Agent"] = "organizational-authenticity-research/1.0"
+    return _session
 
 
 def wayback_raw_url(timestamp: str, original_url: str) -> str:
@@ -30,8 +40,7 @@ def wayback_raw_url(timestamp: str, original_url: str) -> str:
     return f"https://web.archive.org/web/{timestamp}id_/{original_url}"
 
 
-async def download_one(
-    session: aiohttp.ClientSession,
+def download_one(
     ticker: str,
     year: int,
     archive_url: str,
@@ -44,39 +53,37 @@ async def download_one(
 
     phase = "html_download"
     try:
-        async with session.get(
-            archive_url,
-            timeout=aiohttp.ClientTimeout(total=TIMEOUT),
-            allow_redirects=True,
-            ssl=False,
-        ) as resp:
-            if resp.status != 200:
-                log.warning(
-                    f"{ticker} {year}: HTTP {resp.status} | phase={phase} url={archive_url}"
-                )
-                return {"ticker": ticker, "year": year, "status": f"http_{resp.status}", "path": None,
-                        "phase": phase, "archive_url": archive_url, "http_status": resp.status}
-            html = await resp.text(encoding="utf-8", errors="replace")
-            if len(html) < 500:
-                log.warning(f"{ticker} {year}: suspiciously short HTML ({len(html)} chars) for {archive_url}")
-                return {"ticker": ticker, "year": year, "status": "too_short", "path": None}
-            save_text(html, out_path)
-            return {"ticker": ticker, "year": year, "status": "ok", "path": str(out_path)}
-    except asyncio.TimeoutError:
-        log.warning(f"{ticker} {year}: TimeoutError | phase={phase} url={archive_url}")
+        resp = get_session().get(archive_url, timeout=TIMEOUT, allow_redirects=True)
+        time.sleep(DOWNLOAD_DELAY)
+
+        if resp.status_code != 200:
+            log.warning(f"{ticker} {year}: HTTP {resp.status_code} | phase={phase} url={archive_url}")
+            return {"ticker": ticker, "year": year, "status": f"http_{resp.status_code}", "path": None,
+                    "phase": phase, "archive_url": archive_url, "http_status": resp.status_code}
+
+        html = resp.text
+        if len(html) < 500:
+            log.warning(f"{ticker} {year}: suspiciously short HTML ({len(html)} chars) for {archive_url}")
+            return {"ticker": ticker, "year": year, "status": "too_short", "path": None}
+
+        save_text(html, out_path)
+        return {"ticker": ticker, "year": year, "status": "ok", "path": str(out_path)}
+
+    except requests.exceptions.Timeout:
+        log.warning(f"{ticker} {year}: Timeout | phase={phase} url={archive_url}")
         return {"ticker": ticker, "year": year, "status": "timeout", "path": None,
-                "phase": phase, "archive_url": archive_url, "exception_type": "TimeoutError"}
+                "phase": phase, "archive_url": archive_url, "exception_type": "Timeout"}
+
     except Exception as e:
         log.warning(f"{ticker} {year}: {type(e).__name__} | phase={phase} url={archive_url} — {e}")
         return {"ticker": ticker, "year": year, "status": f"error: {type(e).__name__}", "path": None,
                 "phase": phase, "archive_url": archive_url, "exception_type": type(e).__name__}
 
 
-async def run_all(force: bool = False, concurrency: int = CONCURRENCY):
+def run_all(force: bool = False, concurrency: int = 1) -> list[dict]:
     df = load_about_candidates()
     years = years_range()
 
-    # Collect all company-years that have a snapshot
     to_download = []
     for _, row in df.iterrows():
         ticker = row["ticker"]
@@ -84,41 +91,29 @@ async def run_all(force: bool = False, concurrency: int = CONCURRENCY):
             cdx_file = cache_path("wayback_cdx", f"{slug(ticker, year)}.json")
             cdx = load_json(cdx_file)
             if cdx and cdx.get("selection_status") not in ("missing", None):
-                # archive_url is pre-built in query_cdx with the id_/ flag
                 to_download.append((ticker, year, cdx["archive_url"]))
 
-    log.info(f"Downloading {len(to_download)} HTML snapshots ({concurrency} concurrent)")
+    log.info(f"Downloading {len(to_download)} HTML snapshots")
 
-    sem = asyncio.Semaphore(concurrency)
     results = []
-
-    connector = aiohttp.TCPConnector(limit=concurrency)
-    async with aiohttp.ClientSession(connector=connector) as session:
-        async def bounded(ticker, year, archive_url):
-            async with sem:
-                return await download_one(session, ticker, year, archive_url, force)
-
-        coros = [bounded(ticker, year, archive_url) for ticker, year, archive_url in to_download]
-        for coro in tqdm(asyncio.as_completed(coros), total=len(coros), desc="Downloading HTML"):
-            r = await coro
-            results.append(r)
+    for ticker, year, archive_url in tqdm(to_download, desc="Downloading HTML"):
+        r = download_one(ticker, year, archive_url, force)
+        results.append(r)
 
     ok = sum(1 for r in results if r["status"] in ("ok", "cached"))
     failed = [r for r in results if r["status"] not in ("ok", "cached")]
     log.info(f"Done. Successful: {ok}, Failed: {len(failed)}")
     if failed:
-        log.info("Failed cases: " + ", ".join(f"{r['ticker']} {r['year']} ({r['status']})" for r in failed[:10]))
+        log.info("Failed: " + ", ".join(f"{r['ticker']} {r['year']} ({r['status']})" for r in failed[:10]))
 
     return results
 
 
 def main():
     parser = argparse.ArgumentParser(description="Stage 2: Download archived HTML snapshots")
-    parser.add_argument("--force", action="store_true", help="Re-download even if cached")
-    parser.add_argument("--concurrency", type=int, default=CONCURRENCY)
+    parser.add_argument("--force", action="store_true")
     args = parser.parse_args()
-
-    asyncio.run(run_all(force=args.force, concurrency=args.concurrency))
+    run_all(force=args.force)
 
 
 if __name__ == "__main__":

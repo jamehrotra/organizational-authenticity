@@ -5,18 +5,19 @@ For each company, we try candidate URLs (from about_page_candidates.csv) first.
 If none return results, we fall back to common path heuristics.
 All CDX responses are cached under data/raw/wayback_cdx/.
 
+Uses synchronous requests (not aiohttp) for reliability on Windows —
+aiohttp triggers WinError 121 (semaphore timeout) on this machine.
+
 Usage:
     python -m src.part1_wayback.query_cdx [--force]
 """
 
 import argparse
-import asyncio
-import json
-import sys
+import time
 from pathlib import Path
 
-import aiohttp
 import pandas as pd
+import requests
 from tqdm import tqdm
 
 from src.common.io import cache_path, is_cached, save_json, load_json
@@ -32,12 +33,21 @@ from src.common.utils import (
 log = setup_logging("query_cdx")
 
 CDX_API = "https://web.archive.org/cdx/search/cdx"
-CONCURRENCY = 5
-TIMEOUT = 45
+TIMEOUT = 30
+CDX_REQUEST_DELAY = 1.0  # seconds between requests to avoid 429s
+
+_session = None
 
 
-async def query_cdx_for_url(
-    session: aiohttp.ClientSession,
+def get_session() -> requests.Session:
+    global _session
+    if _session is None:
+        _session = requests.Session()
+        _session.headers["User-Agent"] = "organizational-authenticity-research/1.0"
+    return _session
+
+
+def query_cdx_for_url(
     url: str,
     year: int,
     match_type: str = "exact",
@@ -59,50 +69,60 @@ async def query_cdx_for_url(
         "matchType": match_type,
     }
     phase = "cdx_lookup"
-    try:
-        async with session.get(
-            CDX_API,
-            params=params,
-            timeout=aiohttp.ClientTimeout(total=TIMEOUT),
-            ssl=False,
-        ) as resp:
-            if resp.status != 200:
+    session = get_session()
+
+    for attempt in range(3):
+        try:
+            resp = session.get(CDX_API, params=params, timeout=TIMEOUT)
+            time.sleep(CDX_REQUEST_DELAY)
+
+            if resp.status_code == 429:
+                wait = 15 * (attempt + 1)
+                log.warning(f"CDX 429 (attempt {attempt+1}) for {url} {year} — retrying in {wait}s")
+                time.sleep(wait)
+                continue
+
+            if resp.status_code != 200:
                 failure = {
-                    "phase": phase,
-                    "url": url,
-                    "year": year,
-                    "params": params,
-                    "http_status": resp.status,
-                    "exception_type": None,
+                    "phase": phase, "url": url, "year": year,
+                    "params": {k: v for k, v in params.items() if k != "filter"},
+                    "http_status": resp.status_code, "exception_type": None,
                 }
-                log.warning(
-                    f"CDX HTTP {resp.status} | url={url} year={year} params={params}"
-                )
+                log.warning(f"CDX HTTP {resp.status_code} | url={url} year={year}")
                 return [], failure
-            data = await resp.json(content_type=None)
+
+            data = resp.json()
             if not data or len(data) < 2:
                 return [], None
             headers = data[0]
             records = [dict(zip(headers, row)) for row in data[1:]]
             return records, None
-    except Exception as e:
-        failure = {
-            "phase": phase,
-            "url": url,
-            "year": year,
-            "params": params,
-            "http_status": None,
-            "exception_type": type(e).__name__,
-            "exception_msg": str(e),
-        }
-        log.warning(
-            f"CDX {type(e).__name__} | url={url} year={year} params={params} — {e}"
-        )
-        return [], failure
+
+        except requests.exceptions.Timeout:
+            failure = {
+                "phase": phase, "url": url, "year": year,
+                "params": {k: v for k, v in params.items() if k != "filter"},
+                "http_status": None, "exception_type": "Timeout",
+                "exception_msg": f"Timeout after {TIMEOUT}s",
+            }
+            log.warning(f"CDX Timeout | url={url} year={year}")
+            return [], failure
+
+        except Exception as e:
+            failure = {
+                "phase": phase, "url": url, "year": year,
+                "params": {k: v for k, v in params.items() if k != "filter"},
+                "http_status": None, "exception_type": type(e).__name__,
+                "exception_msg": str(e),
+            }
+            log.warning(f"CDX {type(e).__name__} | url={url} year={year} — {e}")
+            return [], failure
+
+    return [], {"phase": phase, "url": url, "year": year,
+                "http_status": 429, "exception_type": "RateLimited"}
 
 
-async def query_company_year(
-    session: aiohttp.ClientSession,
+def query_company_year(
     ticker: str,
     row: pd.Series,
     year: int,
@@ -133,9 +153,9 @@ async def query_company_year(
         "notes": "",
     }
 
-    # Try manual candidates first (matchType=exact as specified for configured URLs)
+    # Try manual candidates first (matchType=exact for configured URLs)
     for url in candidates:
-        records, failure = await query_cdx_for_url(session, url, year, match_type="exact")
+        records, failure = query_cdx_for_url(url, year, match_type="exact")
         if failure:
             result["failures"].append(failure)
         result["tried_urls"].append({"url": url, "source": "manual", "hits": len(records)})
@@ -152,11 +172,11 @@ async def query_company_year(
             save_json(result, out_path)
             return result
 
-    # Fall back to heuristics (prefix match makes sense here)
+    # Fall back to heuristics
     for url in fallbacks:
         if url in candidates:
             continue
-        records, failure = await query_cdx_for_url(session, url, year, match_type="exact")
+        records, failure = query_cdx_for_url(url, year, match_type="exact")
         if failure:
             result["failures"].append(failure)
         result["tried_urls"].append({"url": url, "source": "heuristic", "hits": len(records)})
@@ -188,57 +208,47 @@ def _pick_best_record(records: list[dict]) -> dict:
         try:
             month = int(ts[4:6])
             day = int(ts[6:8])
-            # Distance in days from June 30 (month 6, day 30)
             return abs((month - 6) * 30 + (day - 30))
         except Exception:
             return 999
     return min(records, key=june30_distance)
 
 
-async def _check_wayback_connectivity(session: aiohttp.ClientSession) -> bool:
-    """Quick connectivity check — returns False if web.archive.org is unreachable."""
+def check_wayback_connectivity() -> bool:
+    """Quick connectivity check using requests — returns False if unreachable."""
     try:
-        async with session.get(
+        resp = get_session().get(
             CDX_API,
-            params={"url": "example.com", "output": "json", "limit": "1"},
-            timeout=aiohttp.ClientTimeout(total=15),
-            ssl=False,
-        ) as resp:
-            return resp.status in (200, 404)
+            params={"url": "microsoft.com/en-us/about", "output": "json", "limit": "1",
+                    "matchType": "exact"},
+            timeout=15,
+        )
+        return resp.status_code < 600
     except Exception as e:
         log.error(f"web.archive.org is unreachable: {e}")
         log.error("Cannot run CDX stage. Check network connectivity to web.archive.org.")
-        log.error("Try running again later or from a different network.")
         return False
 
 
-async def run_all(force: bool = False):
+def run_all(force: bool = False) -> list[dict]:
     df = load_about_candidates()
     years = years_range()
     tasks_spec = [(row, year) for _, row in df.iterrows() for year in years]
 
-    log.info(f"Querying CDX for {len(tasks_spec)} company-year combinations ({CONCURRENCY} concurrent)")
+    log.info(f"Querying CDX for {len(tasks_spec)} company-year combinations (sequential, {CDX_REQUEST_DELAY}s delay)")
 
-    sem = asyncio.Semaphore(CONCURRENCY)
+    if not check_wayback_connectivity():
+        return []
+
     results = []
-
-    connector = aiohttp.TCPConnector(limit=CONCURRENCY)
-    async with aiohttp.ClientSession(connector=connector) as session:
-        if not await _check_wayback_connectivity(session):
-            return []
-
-        async def bounded(row, year):
-            async with sem:
-                return await query_company_year(session, row["ticker"], row, year, force)
-
-        coros = [bounded(row, year) for row, year in tasks_spec]
-        for coro in tqdm(asyncio.as_completed(coros), total=len(coros), desc="CDX queries"):
-            r = await coro
-            results.append(r)
+    for row, year in tqdm(tasks_spec, desc="CDX queries"):
+        r = query_company_year(row["ticker"], row, year, force)
+        results.append(r)
 
     missing = [r for r in results if r["selection_status"] == "missing"]
     fallbacks = [r for r in results if r["selection_status"] == "heuristic_fallback"]
-    log.info(f"Done. Missing: {len(missing)}, Heuristic fallbacks: {len(fallbacks)}, Found: {len(results)-len(missing)}")
+    found = len(results) - len(missing)
+    log.info(f"Done. Found: {found}, Heuristic fallbacks: {len(fallbacks)}, Missing: {len(missing)}")
 
     return results
 
@@ -247,8 +257,7 @@ def main():
     parser = argparse.ArgumentParser(description="Stage 1: Query Wayback CDX API")
     parser.add_argument("--force", action="store_true", help="Re-fetch even if cached")
     args = parser.parse_args()
-
-    asyncio.run(run_all(force=args.force))
+    run_all(force=args.force)
 
 
 if __name__ == "__main__":
