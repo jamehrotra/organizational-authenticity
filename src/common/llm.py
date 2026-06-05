@@ -10,7 +10,7 @@ from tenacity import retry, stop_after_attempt, wait_exponential
 
 from src.common.io import is_cached, load_json, save_json
 
-load_dotenv()
+load_dotenv(Path(__file__).resolve().parents[2] / ".env", override=True)
 
 _client = None
 

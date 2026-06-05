@@ -36,6 +36,11 @@ CONCURRENCY = 8
 TIMEOUT = 30
 
 
+def _cdx_url(url: str) -> str:
+    """Strip protocol prefix for CDX API — it handles canonicalization better without it."""
+    return url.replace("https://", "").replace("http://", "")
+
+
 async def query_cdx_for_url(
     session: aiohttp.ClientSession,
     url: str,
@@ -43,7 +48,7 @@ async def query_cdx_for_url(
 ) -> list[dict]:
     """Return CDX records for a URL in a given year, sorted by timestamp."""
     params = {
-        "url": url,
+        "url": _cdx_url(url),
         "output": "json",
         "from": f"{year}0101",
         "to": f"{year}1231",
