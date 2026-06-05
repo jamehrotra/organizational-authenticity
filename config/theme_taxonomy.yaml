@@ -1,0 +1,214 @@
+# Theme taxonomy for organizational authenticity analysis
+# Used in both Part 1 (About Us pages) and Part 2 (proxy statements / disclosures)
+# Each theme has keywords to assist LLM classification and a description for the prompt
+
+themes:
+  innovation:
+    description: >
+      References to technological advancement, research and development, creativity,
+      disruption, new products, patents, cutting-edge solutions, digital transformation,
+      or being a leader in technology or science.
+    keywords:
+      - innovation
+      - technology
+      - research
+      - development
+      - breakthrough
+      - transform
+      - disrupt
+      - digital
+      - invention
+      - patent
+      - leading-edge
+      - cutting-edge
+      - pioneer
+      - advance
+
+  customers_or_patients:
+    description: >
+      References to serving customers, clients, patients, or end users; customer
+      satisfaction, experience, outcomes, needs, relationships, or trust.
+      In healthcare contexts, patient outcomes and care quality fall here.
+    keywords:
+      - customer
+      - client
+      - patient
+      - consumer
+      - user
+      - service
+      - satisfaction
+      - experience
+      - outcome
+      - care
+      - relationship
+      - trust
+      - needs
+      - value for customers
+
+  employees:
+    description: >
+      References to workforce, talent, employees, associates, team members,
+      workplace culture, employee development, well-being, compensation,
+      benefits, engagement, or being a great place to work.
+    keywords:
+      - employee
+      - workforce
+      - talent
+      - associate
+      - team
+      - culture
+      - people
+      - workplace
+      - development
+      - well-being
+      - engagement
+      - compensation
+      - career
+      - inclusion of workers
+
+  diversity_equity_inclusion:
+    description: >
+      References to diversity, equity, inclusion, belonging, representation,
+      equal opportunity, anti-discrimination, gender equity, racial equity,
+      LGBTQ+ inclusion, or demographic representation in leadership.
+    keywords:
+      - diversity
+      - equity
+      - inclusion
+      - belonging
+      - representation
+      - equal opportunity
+      - DEI
+      - discrimination
+      - gender
+      - racial
+      - LGBTQ
+      - underrepresented
+      - accessibility
+
+  sustainability_environment:
+    description: >
+      References to environmental sustainability, climate change, carbon emissions,
+      net zero, renewable energy, environmental stewardship, resource conservation,
+      ESG environmental pillar, or green initiatives.
+    keywords:
+      - sustainability
+      - environment
+      - climate
+      - carbon
+      - emissions
+      - net zero
+      - renewable
+      - green
+      - stewardship
+      - conservation
+      - clean energy
+      - ESG
+      - planet
+
+  community_social_impact:
+    description: >
+      References to community investment, philanthropy, social responsibility,
+      economic development, giving back, volunteerism, nonprofit partnerships,
+      social impact, or supporting underserved communities.
+    keywords:
+      - community
+      - social
+      - philanthropy
+      - giving
+      - volunteer
+      - impact
+      - society
+      - foundation
+      - nonprofit
+      - investment in communities
+      - underserved
+      - responsibility to society
+
+  ethics_integrity:
+    description: >
+      References to ethical conduct, integrity, honesty, transparency, trust,
+      compliance, anti-corruption, doing the right thing, or corporate values
+      as behavioral standards.
+    keywords:
+      - ethics
+      - integrity
+      - honesty
+      - transparency
+      - trust
+      - compliance
+      - accountability
+      - conduct
+      - values
+      - principles
+      - right thing
+      - anti-corruption
+
+  governance_accountability:
+    description: >
+      References to corporate governance, board oversight, executive accountability,
+      shareholder rights, risk management, internal controls, audit, regulatory
+      compliance, or fiduciary responsibility.
+    keywords:
+      - governance
+      - board
+      - oversight
+      - accountability
+      - shareholder
+      - risk management
+      - audit
+      - fiduciary
+      - regulatory
+      - controls
+      - proxy
+      - executive compensation
+      - director
+
+  financial_performance:
+    description: >
+      References to revenue growth, profitability, shareholder returns, dividends,
+      earnings, return on investment, capital allocation, financial results,
+      or value creation for investors.
+    keywords:
+      - revenue
+      - profit
+      - shareholder
+      - return
+      - earnings
+      - growth
+      - capital
+      - dividend
+      - performance
+      - value creation
+      - financial results
+      - investment return
+
+  safety_quality:
+    description: >
+      References to product safety, quality assurance, operational safety,
+      worker safety, regulatory standards, reliability, quality control,
+      safety culture, or zero-harm goals.
+    keywords:
+      - safety
+      - quality
+      - reliability
+      - standards
+      - zero harm
+      - operational excellence
+      - product quality
+      - safe workplace
+      - regulatory standards
+      - assurance
+
+# Scoring instructions for LLM
+scoring:
+  method: >
+    For each theme, assign a score from 0 to 3:
+      0 = not mentioned or only incidental reference
+      1 = mentioned but not emphasized
+      2 = clearly present and emphasized
+      3 = central theme of the text
+  output_format: >
+    Return a JSON object with theme names as keys and integer scores (0-3) as values.
+    Also include a "dominant_themes" list of the top 3 themes by score,
+    and an "analyst_notes" string with any notable observations.

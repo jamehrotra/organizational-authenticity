@@ -1,3 +1,12 @@
+# Secrets
+.env
+
+# Large data artifacts (track config and processed outputs only)
+data/raw/
+data/interim/
+data/processed/part1_dataset.csv
+data/processed/part2_dataset.csv
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]

@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir -p *)",
+      "Bash(touch *)",
+      "Bash(curl -s *)",
+      "Bash(netstat *)",
+      "Bash(/c/Users/jonat/AppData/Local/Programs/Python/Python312/python *)"
+    ]
+  }
+}

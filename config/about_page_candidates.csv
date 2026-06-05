@@ -1,0 +1,51 @@
+ticker,company_name,sector,domain,primary_about_url,secondary_about_url,values_url,mission_url,selected_url,selection_status,manual_notes
+MSFT,Microsoft,Technology,microsoft.com,https://www.microsoft.com/en-us/about,https://www.microsoft.com/en-us/about/corporate-values,,https://www.microsoft.com/en-us/about/our-story,,,Microsoft about page; values subpage also viable
+AAPL,Apple,Technology,apple.com,https://www.apple.com/about/,https://www.apple.com/job-creation/,,,,, Apple about page; minimal values text; may redirect to investor page in older snapshots
+NVDA,NVIDIA,Technology,nvidia.com,https://www.nvidia.com/en-us/about-nvidia/,https://www.nvidia.com/en-us/about-nvidia/corporate-social-responsibility/,,,,, Primary corporate about page
+GOOGL,Alphabet,Technology,about.google,https://about.google/,https://about.google/our-story/,https://about.google/commitments/,,,,Alphabet uses about.google domain; check google.com/about as fallback
+META,Meta Platforms,Technology,meta.com,https://about.meta.com/,https://www.facebook.com/about/,https://about.meta.com/company-info/,,,, Pre-2022 company was Facebook; facebook.com/about used for older years
+AVGO,Broadcom,Technology,broadcom.com,https://www.broadcom.com/company,https://www.broadcom.com/company/about-us,,,,, B2B company; limited values language expected
+CRM,Salesforce,Technology,salesforce.com,https://www.salesforce.com/company/about-us/,https://www.salesforce.com/company/our-story/,https://www.salesforce.com/company/values/,,,, Salesforce has explicit values page; values_url preferred
+ORCL,Oracle,Technology,oracle.com,https://www.oracle.com/corporate/,https://www.oracle.com/corporate/about.html,,,,, Oracle corporate page
+IBM,IBM,Technology,ibm.com,https://www.ibm.com/about,https://www.ibm.com/about/company,,,,, IBM about page
+INTC,Intel,Technology,intel.com,https://www.intel.com/content/www/us/en/company-overview/company-overview.html,https://www.intel.com/content/www/us/en/corporate-responsibility/corporate-responsibility.html,,,,, Intel has long URL paths; check archive carefully
+BRK.B,Berkshire Hathaway,Financials,berkshirehathaway.com,https://www.berkshirehathaway.com/,https://www.berkshirehathaway.com/news/news.html,,,,,Berkshire has minimal web presence; homepage is effectively the about page; expect sparse text
+JPM,JPMorgan Chase,Financials,jpmorganchase.com,https://www.jpmorganchase.com/about,https://www.jpmorganchase.com/about/our-business,,,,, JPMorgan Chase corporate site (not jpmorgan.com which is the bank)
+BAC,Bank of America,Financials,bankofamerica.com,https://about.bankofamerica.com/en/our-company,https://about.bankofamerica.com/en/making-an-impact,,,,, BofA has dedicated about subdomain
+WFC,Wells Fargo,Financials,wellsfargo.com,https://www.wellsfargo.com/about/,https://www.wellsfargo.com/about/corporate/vision-and-values/,https://www.wellsfargo.com/about/corporate/vision-and-values/,,,, Vision and values subpage is primary target
+GS,Goldman Sachs,Financials,goldmansachs.com,https://www.goldmansachs.com/our-firm/,https://www.goldmansachs.com/our-firm/culture-and-people/,,,,, Goldman Sachs our-firm page
+MS,Morgan Stanley,Financials,morganstanley.com,https://www.morganstanley.com/about-us,https://www.morganstanley.com/about-us/morgan-stanley-at-a-glance,,,,, Morgan Stanley about page
+BLK,BlackRock,Financials,blackrock.com,https://www.blackrock.com/corporate/about-us,https://www.blackrock.com/corporate/about-us/blackrock-principles,,,,, BlackRock has principles page
+SCHW,Charles Schwab,Financials,schwab.com,https://www.schwab.com/about-schwab,https://aboutschwab.com/,,,,,Charles Schwab about page; aboutschwab.com is also used
+AXP,American Express,Financials,americanexpress.com,https://www.americanexpress.com/en-us/company/about/,https://about.americanexpress.com/,,,,, American Express about page
+C,Citigroup,Financials,citigroup.com,https://www.citigroup.com/global/about-citi,https://www.citigroup.com/global/about-citi/mission-and-value-proposition,https://www.citigroup.com/global/about-citi/mission-and-value-proposition,,,, Citigroup has explicit mission page
+LLY,Eli Lilly,Healthcare,lilly.com,https://www.lilly.com/about,https://www.lilly.com/about/mission-statement,,,,, Lilly about and mission pages
+UNH,UnitedHealth Group,Healthcare,unitedhealthgroup.com,https://www.unitedhealthgroup.com/who-we-are.html,https://www.unitedhealthgroup.com/who-we-are/our-purpose.html,,,,, UHG who-we-are page
+JNJ,Johnson & Johnson,Healthcare,jnj.com,https://www.jnj.com/about-jnj,https://www.jnj.com/about-jnj/our-credo,https://www.jnj.com/about-jnj/our-credo,,,, J&J Credo page is the canonical values document
+ABBV,AbbVie,Healthcare,abbvie.com,https://www.abbvie.com/who-we-are.html,https://www.abbvie.com/who-we-are/mission-and-values.html,https://www.abbvie.com/who-we-are/mission-and-values.html,,,, AbbVie mission and values subpage preferred
+MRK,Merck,Healthcare,merck.com,https://www.merck.com/about/,https://www.merck.com/about/our-values/,,,,, Merck about and values pages
+TMO,Thermo Fisher Scientific,Healthcare,thermofisher.com,https://www.thermofisher.com/us/en/home/about-us.html,https://www.thermofisher.com/us/en/home/about-us/our-mission.html,,,,, Thermo Fisher about page; long URLs typical
+ABT,Abbott Laboratories,Healthcare,abbott.com,https://www.abbott.com/about-abbott.html,https://www.abbott.com/about-abbott/mission-and-values.html,,,,, Abbott about and mission pages
+PFE,Pfizer,Healthcare,pfizer.com,https://www.pfizer.com/about,https://www.pfizer.com/about/mission,,,,, Pfizer about and mission pages
+MDT,Medtronic,Healthcare,medtronic.com,https://www.medtronic.com/us-en/about.html,https://www.medtronic.com/us-en/about/mission-medtronic.html,,,,, Medtronic mission page preferred
+BMY,Bristol-Myers Squibb,Healthcare,bms.com,https://www.bms.com/about-us.html,https://www.bms.com/about-us/our-values.html,,,,, BMS about and values pages
+AMZN,Amazon,Consumer Discretionary,aboutamazon.com,https://www.aboutamazon.com/about-us,https://www.aboutamazon.com/our-company/our-leadership-principles,https://www.aboutamazon.com/our-company/our-leadership-principles,,,, Amazon uses aboutamazon.com; leadership principles page is canonical
+TSLA,Tesla,Consumer Discretionary,tesla.com,https://www.tesla.com/about,https://www.tesla.com/impact,,,,, Tesla about page; sparse values language expected
+HD,Home Depot,Consumer Discretionary,homedepot.com,https://corporate.homedepot.com/about,https://ir.homedepot.com/corporate-governance/values,,,,,Home Depot corporate site separate from store site
+MCD,McDonald's,Consumer Discretionary,corporate.mcdonalds.com,https://corporate.mcdonalds.com/corpmcd/about-us.html,https://corporate.mcdonalds.com/corpmcd/our-company/who-we-are.html,,,,, McDonald's corporate about page
+NKE,Nike,Consumer Discretionary,about.nike.com,https://about.nike.com/,https://www.nike.com/a/nike-purpose,,,,, Nike uses about.nike.com subdomain
+SBUX,Starbucks,Consumer Discretionary,starbucks.com,https://www.starbucks.com/about-us/,https://www.starbucks.com/responsibility/,https://www.starbucks.com/responsibility/,,,, Starbucks responsibility page has values content
+TGT,Target,Consumer Discretionary,target.com,https://corporate.target.com/about,https://corporate.target.com/about/purpose-beliefs-values-commitments,,,,, Target corporate site; purpose and values subpage preferred
+LOW,Lowe's,Consumer Discretionary,lowes.com,https://corporate.lowes.com/who-we-are,https://corporate.lowes.com/who-we-are/lowes-purpose-vision-strategy,,,,, Lowe's corporate site; purpose page preferred
+TJX,TJX Companies,Consumer Discretionary,tjx.com,https://www.tjx.com/about,https://www.tjx.com/about/about-tjx,,,,, TJX about page
+F,Ford Motor,Consumer Discretionary,corporate.ford.com,https://corporate.ford.com/company.html,https://corporate.ford.com/company/our-values.html,,,,, Ford corporate site; values subpage preferred
+XOM,ExxonMobil,Energy,exxonmobil.com,https://corporate.exxonmobil.com/about-us,https://corporate.exxonmobil.com/about-us/who-we-are,,,,, ExxonMobil corporate about page
+CVX,Chevron,Energy,chevron.com,https://www.chevron.com/about,https://www.chevron.com/about/chevron-way,https://www.chevron.com/about/chevron-way,,,, Chevron Way page is canonical values document
+COP,ConocoPhillips,Energy,conocophillips.com,https://www.conocophillips.com/who-we-are/,https://www.conocophillips.com/who-we-are/our-values/,,,,, ConocoPhillips who-we-are and values pages
+EOG,EOG Resources,Energy,eogresources.com,https://www.eogresources.com/company,https://www.eogresources.com/company/mission-values.html,,,,, EOG company and mission-values pages
+SLB,SLB,Energy,slb.com,https://www.slb.com/about,https://www.slb.com/about/who-we-are,,,,, Formerly Schlumberger; rebranded to SLB in 2022; use slb.com and schlumberger.com for older years
+MPC,Marathon Petroleum,Energy,marathonpetroleum.com,https://www.marathonpetroleum.com/About/,https://www.marathonpetroleum.com/About/Our-Guiding-Principles/,,,,, Marathon Petroleum about page
+PSX,Phillips 66,Energy,phillips66.com,https://www.phillips66.com/about-us,https://www.phillips66.com/about-us/our-company,,,,, Phillips 66 about us page
+VLO,Valero Energy,Energy,valero.com,https://www.valero.com/en-us/Pages/About.aspx,https://www.valero.com/en-us/Pages/OurValues.aspx,,,,, Valero uses .aspx paths; check archive carefully
+OXY,Occidental Petroleum,Energy,oxy.com,https://www.oxy.com/about-oxy/,https://www.oxy.com/about-oxy/our-values/,,,,, Occidental about and values pages
+HAL,Halliburton,Energy,halliburton.com,https://www.halliburton.com/en/about-us,https://www.halliburton.com/en/about-us/our-company,,,,, Halliburton about page
