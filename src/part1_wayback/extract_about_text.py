@@ -31,7 +31,12 @@ def extract_one(ticker: str, year: int, force: bool = False) -> dict:
     if not html:
         return {"ticker": ticker, "year": year, "status": "no_html", "word_count": 0}
 
-    text = clean_html(html)
+    try:
+        text = clean_html(html)
+    except Exception as e:
+        log.warning(f"{ticker} {year}: cleaning error — {type(e).__name__}: {e}")
+        return {"ticker": ticker, "year": year, "status": f"error: {type(e).__name__}", "word_count": 0}
+
     wc = word_count(text)
 
     if wc < 30:
@@ -55,9 +60,13 @@ def run_all(force: bool = False):
 
     ok = sum(1 for r in results if r["status"] in ("ok", "cached"))
     empty = [r for r in results if r["status"] == "no_html"]
+    errors = [r for r in results if r["status"].startswith("error:")]
     short = [r for r in results if r.get("word_count") is not None and r["word_count"] < 30]
 
-    log.info(f"Done. Extracted: {ok}, No HTML: {len(empty)}, Short (<30 words): {len(short)}")
+    log.info(f"Done. Extracted: {ok}, No HTML: {len(empty)}, Errors: {len(errors)}, Short (<30 words): {len(short)}")
+    if errors:
+        for r in errors:
+            log.warning(f"  Error: {r['ticker']} {r['year']} — {r['status']}")
     return results
 
 

@@ -53,12 +53,24 @@ def _bs4_fallback(html: str) -> str:
         tag.decompose()
 
     for tag in soup.find_all(True):
-        classes = " ".join(tag.get("class", []))
-        _id = tag.get("id", "")
-        skip_signals = ["nav", "menu", "footer", "sidebar", "cookie",
-                        "banner", "popup", "modal", "breadcrumb"]
-        if any(s in classes.lower() or s in _id.lower() for s in skip_signals):
-            tag.decompose()
+        try:
+            attrs = tag.attrs if tag.attrs is not None else {}
+            raw_class = attrs.get("class", [])
+            if isinstance(raw_class, str):
+                raw_class = raw_class.split()
+            elif not isinstance(raw_class, (list, tuple)):
+                raw_class = []
+            classes = " ".join(str(c) for c in raw_class)
+
+            raw_id = attrs.get("id", "")
+            _id = raw_id if isinstance(raw_id, str) else str(raw_id) if raw_id else ""
+
+            skip_signals = ["nav", "menu", "footer", "sidebar", "cookie",
+                            "banner", "popup", "modal", "breadcrumb"]
+            if any(s in classes.lower() or s in _id.lower() for s in skip_signals):
+                tag.decompose()
+        except Exception:
+            pass
 
     text = soup.get_text(separator=" ", strip=True)
     return _normalize(text)
