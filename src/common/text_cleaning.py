@@ -25,17 +25,27 @@ BOILERPLATE_RE = re.compile(
     "|".join(BOILERPLATE_PATTERNS), re.IGNORECASE
 )
 
-# Only check these structural container types for nav/chrome signals.
-# Limiting to containers avoids accidentally removing content-bearing elements
-# (spans, paragraphs, headings) whose class names happen to contain "nav".
+# Structural container tags we inspect for nav/chrome signals.
 _CONTAINER_TAGS = {"div", "section", "ul", "ol", "aside", "widget"}
 
-# Require token-level matches to avoid false positives like "navigation-content"
-# matching a content div. These are unambiguous navigation/chrome identifiers.
-_NAV_SIGNAL_RE = re.compile(
-    r"\b(sitenav|site-nav|globalnav|global-nav|mainnav|main-nav"
-    r"|topnav|top-nav|breadcrumb|sidebar|cookie-banner|cookie-bar"
-    r"|popup|modal-overlay|newsletter-signup)\b",
+# Class tokens or id values that unambiguously identify nav/chrome containers.
+# Checked against individual class tokens and the full id string so that
+# compound class names like "content-hero-no-sidebar" don't false-positive.
+_NAV_CLASS_TOKENS = {
+    "sitenav", "site-nav", "globalnav", "global-nav",
+    "mainnav", "main-nav", "topnav", "top-nav",
+    "breadcrumb", "breadcrumbs",
+    "sidebar", "side-bar",
+    "cookie-banner", "cookie-bar", "cookie-notice",
+    "popup", "modal-overlay", "newsletter-signup",
+}
+
+# For ids we still use a regex since ids are a single value (no compound issue).
+_NAV_ID_RE = re.compile(
+    r"^(sitenav|site.nav|globalnav|global.nav|mainnav|main.nav"
+    r"|topnav|top.nav|breadcrumb|breadcrumbs|sidebar|side.bar"
+    r"|cookie.banner|cookie.bar|cookie.notice"
+    r"|popup|modal.overlay|newsletter.signup)$",
     re.IGNORECASE,
 )
 
@@ -62,14 +72,24 @@ def clean_html(html: str, url: str = "") -> str:
 def _bs4_fallback(html: str) -> str:
     soup = BeautifulSoup(html, "lxml")
 
-    # Remove clearly non-content semantic elements unconditionally.
-    for tag in soup(["script", "style", "nav", "header", "footer",
-                      "aside", "noscript", "iframe", "form"]):
+    # Remove non-content elements unconditionally.
+    for tag in soup(["script", "style", "noscript", "iframe"]):
         tag.decompose()
 
-    # Remove structural containers whose class/id unambiguously marks them as
-    # navigation chrome. Only check container-type tags (div, section, ul, ol)
-    # to avoid nuking content elements that share a class name fragment.
+    # Remove nav unconditionally — it is always site chrome.
+    for tag in soup.find_all("nav"):
+        tag.decompose()
+
+    # Remove header/footer/form/aside only if they look like site chrome
+    # (small word count). Some sites wrap page content in <header> or <form>.
+    for tagname in ["header", "footer", "form", "aside"]:
+        for tag in soup.find_all(tagname):
+            if len(tag.get_text().split()) < 100:
+                tag.decompose()
+
+    # Remove structural containers whose class tokens or id exactly match
+    # known nav/chrome identifiers. Check class tokens individually so that
+    # compound names like "content-hero-no-sidebar" don't false-positive.
     for tag in soup.find_all(_CONTAINER_TAGS):
         try:
             attrs = tag.attrs if tag.attrs is not None else {}
@@ -79,30 +99,28 @@ def _bs4_fallback(html: str) -> str:
                 raw_class = raw_class.split()
             elif not isinstance(raw_class, (list, tuple)):
                 raw_class = []
-            classes = " ".join(str(c) for c in raw_class)
+            class_tokens = {str(c).lower() for c in raw_class}
 
-            raw_id = attrs.get("id", "")
-            elem_id = raw_id if isinstance(raw_id, str) else (str(raw_id) if raw_id else "")
+            elem_id = attrs.get("id", "") or ""
+            if not isinstance(elem_id, str):
+                elem_id = str(elem_id)
 
-            combined = f"{classes} {elem_id}"
-            if _NAV_SIGNAL_RE.search(combined):
+            if class_tokens & _NAV_CLASS_TOKENS or _NAV_ID_RE.match(elem_id):
                 tag.decompose()
         except Exception:
             pass
 
-    # Use newline separator so get_text produces multi-line output.
-    # _normalize then filters line by line rather than on one giant blob.
+    # Newline separator so _normalize can filter line by line.
     text = soup.get_text(separator="\n", strip=True)
     return _normalize(text)
 
 
 def _normalize(text: str) -> str:
     text = unicodedata.normalize("NFKD", text)
-    # Collapse spaces/tabs within lines but preserve newline boundaries.
     text = re.sub(r"[^\S\n]+", " ", text)
     lines = [l.strip() for l in text.splitlines() if l.strip()]
     lines = [l for l in lines if not BOILERPLATE_RE.search(l)]
-    # Drop lines that are only 1-2 tokens (menu labels, lone headings).
+    # Drop lines that are only 1-2 tokens (menu labels, lone words).
     lines = [l for l in lines if len(l.split()) >= 3]
     return "\n".join(lines).strip()
 

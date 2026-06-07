@@ -1,13 +1,13 @@
 ticker,company_name,sector,year,authenticity_score,has_both_sources,top_stated_themes,top_lived_themes,largest_theme_gap
-AAPL,Apple,Technology,2016,,False,,,none
-AAPL,Apple,Technology,2017,,False,,,none
+AAPL,Apple,Technology,2016,0.25,True,employees|customers_or_patients,governance_accountability|financial_performance|employees,customers_or_patients
+AAPL,Apple,Technology,2017,0.3536,True,employees|customers_or_patients,governance_accountability|financial_performance|diversity_equity_inclusion,none
 AAPL,Apple,Technology,2018,,False,,,none
-AAPL,Apple,Technology,2019,,False,,,none
-AAPL,Apple,Technology,2020,,False,,,none
-AAPL,Apple,Technology,2021,,False,,,none
-AAPL,Apple,Technology,2022,,False,,,none
-AAPL,Apple,Technology,2023,,False,,,none
-AAPL,Apple,Technology,2024,,False,,,none
+AAPL,Apple,Technology,2019,0.7166,True,financial_performance|community_social_impact|innovation,financial_performance|governance_accountability|innovation,community_social_impact
+AAPL,Apple,Technology,2020,0.6025,True,financial_performance|community_social_impact|employees,governance_accountability|financial_performance|innovation,community_social_impact
+AAPL,Apple,Technology,2021,0.6018,True,financial_performance|community_social_impact|employees,community_social_impact|governance_accountability|sustainability_environment,none
+AAPL,Apple,Technology,2022,0.7046,True,financial_performance|community_social_impact|employees,community_social_impact|governance_accountability|employees,none
+AAPL,Apple,Technology,2023,0.4781,True,financial_performance|community_social_impact|employees,sustainability_environment|governance_accountability|diversity_equity_inclusion,community_social_impact
+AAPL,Apple,Technology,2024,0.6954,True,financial_performance|community_social_impact|employees,sustainability_environment|governance_accountability|innovation,none
 ABBV,AbbVie,Healthcare,2016,,False,,,none
 ABBV,AbbVie,Healthcare,2017,,False,,,none
 ABBV,AbbVie,Healthcare,2018,,False,,,none
@@ -15,40 +15,40 @@ ABBV,AbbVie,Healthcare,2019,,False,,,none
 ABBV,AbbVie,Healthcare,2020,,False,,,none
 ABBV,AbbVie,Healthcare,2021,,False,,,none
 ABBV,AbbVie,Healthcare,2022,,False,,,none
-ABBV,AbbVie,Healthcare,2023,,False,,,none
-ABBV,AbbVie,Healthcare,2024,,False,,,none
-ABT,Abbott Laboratories,Healthcare,2016,,False,,,none
-ABT,Abbott Laboratories,Healthcare,2017,,False,,,none
+ABBV,AbbVie,Healthcare,2023,,False,innovation|customers_or_patients|ethics_integrity,,innovation
+ABBV,AbbVie,Healthcare,2024,,False,innovation|customers_or_patients|employees,,innovation
+ABT,Abbott Laboratories,Healthcare,2016,,False,innovation|customers_or_patients|community_social_impact,,innovation
+ABT,Abbott Laboratories,Healthcare,2017,,False,customers_or_patients|innovation|community_social_impact,,customers_or_patients
 ABT,Abbott Laboratories,Healthcare,2018,,False,,,none
 ABT,Abbott Laboratories,Healthcare,2019,,False,,,none
 ABT,Abbott Laboratories,Healthcare,2020,,False,,,none
 ABT,Abbott Laboratories,Healthcare,2021,,False,,,none
 ABT,Abbott Laboratories,Healthcare,2022,,False,,,none
 ABT,Abbott Laboratories,Healthcare,2023,,False,,,none
-ABT,Abbott Laboratories,Healthcare,2024,,False,,,none
+ABT,Abbott Laboratories,Healthcare,2024,,False,customers_or_patients|innovation|community_social_impact,,customers_or_patients
 AMZN,Amazon,Consumer Discretionary,2016,,False,,,none
 AMZN,Amazon,Consumer Discretionary,2017,,False,,,none
-AMZN,Amazon,Consumer Discretionary,2018,,False,,,none
-AMZN,Amazon,Consumer Discretionary,2019,,False,,,none
-AMZN,Amazon,Consumer Discretionary,2020,,False,,,none
-AMZN,Amazon,Consumer Discretionary,2021,,False,,,none
-AMZN,Amazon,Consumer Discretionary,2022,,False,,,none
-AMZN,Amazon,Consumer Discretionary,2023,,False,,,none
-AMZN,Amazon,Consumer Discretionary,2024,,False,,,none
-AVGO,Broadcom,Technology,2016,,False,,,none
-AVGO,Broadcom,Technology,2017,,False,,,none
-AVGO,Broadcom,Technology,2018,,False,,,none
-AVGO,Broadcom,Technology,2019,,False,,,none
-AVGO,Broadcom,Technology,2020,,False,,,none
-AVGO,Broadcom,Technology,2021,,False,,,none
-AVGO,Broadcom,Technology,2022,,False,,,none
-AVGO,Broadcom,Technology,2023,,False,,,none
-AVGO,Broadcom,Technology,2024,,False,,,none
-AXP,American Express,Financials,2016,,False,,,none
-AXP,American Express,Financials,2017,,False,,,none
-AXP,American Express,Financials,2018,,False,,,none
-AXP,American Express,Financials,2019,,False,,,none
-AXP,American Express,Financials,2020,,False,,,none
+AMZN,Amazon,Consumer Discretionary,2018,,False,financial_performance|customers_or_patients|employees,,customers_or_patients
+AMZN,Amazon,Consumer Discretionary,2019,,False,innovation|customers_or_patients|community_social_impact,,innovation
+AMZN,Amazon,Consumer Discretionary,2020,,False,innovation|customers_or_patients|ethics_integrity,,innovation
+AMZN,Amazon,Consumer Discretionary,2021,,False,innovation|customers_or_patients|ethics_integrity,,innovation
+AMZN,Amazon,Consumer Discretionary,2022,,False,innovation|customers_or_patients|employees,,innovation
+AMZN,Amazon,Consumer Discretionary,2023,,False,innovation|customers_or_patients|employees,,innovation
+AMZN,Amazon,Consumer Discretionary,2024,,False,innovation|customers_or_patients|employees,,innovation
+AVGO,Broadcom,Technology,2016,,False,innovation|customers_or_patients|sustainability_environment,,innovation
+AVGO,Broadcom,Technology,2017,,False,innovation|customers_or_patients|sustainability_environment,,innovation
+AVGO,Broadcom,Technology,2018,,False,innovation|customers_or_patients|sustainability_environment,,innovation
+AVGO,Broadcom,Technology,2019,,False,,financial_performance|governance_accountability|innovation,none
+AVGO,Broadcom,Technology,2020,,False,,financial_performance|governance_accountability|innovation,none
+AVGO,Broadcom,Technology,2021,,False,,financial_performance|governance_accountability|employees,none
+AVGO,Broadcom,Technology,2022,,False,,financial_performance|governance_accountability|employees,none
+AVGO,Broadcom,Technology,2023,,False,,financial_performance|governance_accountability|employees,none
+AVGO,Broadcom,Technology,2024,,False,,financial_performance|governance_accountability|employees,none
+AXP,American Express,Financials,2016,,False,customers_or_patients|innovation,,customers_or_patients
+AXP,American Express,Financials,2017,,False,innovation|customers_or_patients|governance_accountability,,innovation
+AXP,American Express,Financials,2018,,False,financial_performance|customers_or_patients|innovation,,innovation
+AXP,American Express,Financials,2019,,False,customers_or_patients,,customers_or_patients
+AXP,American Express,Financials,2020,,False,customers_or_patients|community_social_impact,,customers_or_patients
 AXP,American Express,Financials,2021,,False,,,none
 AXP,American Express,Financials,2022,,False,,,none
 AXP,American Express,Financials,2023,,False,,,none
@@ -58,36 +58,36 @@ BAC,Bank of America,Financials,2017,,False,,,none
 BAC,Bank of America,Financials,2018,,False,,,none
 BAC,Bank of America,Financials,2019,,False,,,none
 BAC,Bank of America,Financials,2020,,False,,,none
-BAC,Bank of America,Financials,2021,,False,,,none
-BAC,Bank of America,Financials,2022,,False,,,none
-BAC,Bank of America,Financials,2023,,False,,,none
-BAC,Bank of America,Financials,2024,,False,,,none
+BAC,Bank of America,Financials,2021,,False,customers_or_patients|financial_performance|employees,,customers_or_patients
+BAC,Bank of America,Financials,2022,,False,customers_or_patients|financial_performance|employees,,customers_or_patients
+BAC,Bank of America,Financials,2023,,False,customers_or_patients|financial_performance|employees,,customers_or_patients
+BAC,Bank of America,Financials,2024,,False,customers_or_patients|financial_performance|employees,,customers_or_patients
 BLK,BlackRock,Financials,2016,,False,,,none
 BLK,BlackRock,Financials,2017,,False,,,none
-BLK,BlackRock,Financials,2018,,False,,,none
+BLK,BlackRock,Financials,2018,,False,customers_or_patients|financial_performance|sustainability_environment,,customers_or_patients
 BLK,BlackRock,Financials,2019,,False,,,none
-BLK,BlackRock,Financials,2020,,False,,,none
-BLK,BlackRock,Financials,2021,,False,,,none
-BLK,BlackRock,Financials,2022,,False,,,none
-BLK,BlackRock,Financials,2023,,False,,,none
-BLK,BlackRock,Financials,2024,,False,,,none
+BLK,BlackRock,Financials,2020,,False,customers_or_patients|governance_accountability|innovation,,customers_or_patients
+BLK,BlackRock,Financials,2021,,False,customers_or_patients|governance_accountability|employees,,customers_or_patients
+BLK,BlackRock,Financials,2022,,False,customers_or_patients|sustainability_environment|innovation,,customers_or_patients
+BLK,BlackRock,Financials,2023,,False,customers_or_patients|governance_accountability|employees,,customers_or_patients
+BLK,BlackRock,Financials,2024,,False,customers_or_patients|governance_accountability|employees,,customers_or_patients
 BMY,Bristol-Myers Squibb,Healthcare,2016,,False,,,none
-BMY,Bristol-Myers Squibb,Healthcare,2017,,False,,,none
-BMY,Bristol-Myers Squibb,Healthcare,2018,,False,,,none
-BMY,Bristol-Myers Squibb,Healthcare,2019,,False,,,none
-BMY,Bristol-Myers Squibb,Healthcare,2020,,False,,,none
-BMY,Bristol-Myers Squibb,Healthcare,2021,,False,,,none
-BMY,Bristol-Myers Squibb,Healthcare,2022,,False,,,none
-BMY,Bristol-Myers Squibb,Healthcare,2023,,False,,,none
-BMY,Bristol-Myers Squibb,Healthcare,2024,,False,,,none
-BRK.B,Berkshire Hathaway,Financials,2016,,False,,,none
-BRK.B,Berkshire Hathaway,Financials,2017,,False,,,none
-BRK.B,Berkshire Hathaway,Financials,2018,,False,,,none
-BRK.B,Berkshire Hathaway,Financials,2019,,False,,,none
-BRK.B,Berkshire Hathaway,Financials,2020,,False,,,none
-BRK.B,Berkshire Hathaway,Financials,2021,,False,,,none
-BRK.B,Berkshire Hathaway,Financials,2022,,False,,,none
-BRK.B,Berkshire Hathaway,Financials,2023,,False,,,none
+BMY,Bristol-Myers Squibb,Healthcare,2017,,False,customers_or_patients|ethics_integrity|employees,,customers_or_patients
+BMY,Bristol-Myers Squibb,Healthcare,2018,,False,customers_or_patients|ethics_integrity|employees,,customers_or_patients
+BMY,Bristol-Myers Squibb,Healthcare,2019,,False,community_social_impact|ethics_integrity|customers_or_patients,,innovation
+BMY,Bristol-Myers Squibb,Healthcare,2020,,False,innovation|customers_or_patients|employees,,innovation
+BMY,Bristol-Myers Squibb,Healthcare,2021,,False,innovation|customers_or_patients|employees,,innovation
+BMY,Bristol-Myers Squibb,Healthcare,2022,,False,innovation|customers_or_patients|employees,,innovation
+BMY,Bristol-Myers Squibb,Healthcare,2023,,False,innovation|customers_or_patients|employees,,innovation
+BMY,Bristol-Myers Squibb,Healthcare,2024,,False,innovation|customers_or_patients|employees,,innovation
+BRK.B,Berkshire Hathaway,Financials,2016,,False,financial_performance|governance_accountability,,governance_accountability
+BRK.B,Berkshire Hathaway,Financials,2017,,False,financial_performance|governance_accountability,,governance_accountability
+BRK.B,Berkshire Hathaway,Financials,2018,,False,financial_performance|governance_accountability,,governance_accountability
+BRK.B,Berkshire Hathaway,Financials,2019,,False,financial_performance|governance_accountability,,governance_accountability
+BRK.B,Berkshire Hathaway,Financials,2020,,False,governance_accountability|financial_performance|customers_or_patients,,governance_accountability
+BRK.B,Berkshire Hathaway,Financials,2021,,False,financial_performance|governance_accountability|community_social_impact,,community_social_impact
+BRK.B,Berkshire Hathaway,Financials,2022,,False,financial_performance|governance_accountability|community_social_impact,,community_social_impact
+BRK.B,Berkshire Hathaway,Financials,2023,,False,financial_performance|governance_accountability,,governance_accountability
 BRK.B,Berkshire Hathaway,Financials,2024,,False,,,none
 C,Citigroup,Financials,2016,,False,,,none
 C,Citigroup,Financials,2017,,False,,,none
@@ -100,31 +100,31 @@ C,Citigroup,Financials,2023,,False,,,none
 C,Citigroup,Financials,2024,,False,,,none
 COP,ConocoPhillips,Energy,2016,,False,,,none
 COP,ConocoPhillips,Energy,2017,,False,,,none
-COP,ConocoPhillips,Energy,2018,,False,,,none
-COP,ConocoPhillips,Energy,2019,,False,,,none
-COP,ConocoPhillips,Energy,2020,,False,,,none
-COP,ConocoPhillips,Energy,2021,,False,,,none
-COP,ConocoPhillips,Energy,2022,,False,,,none
-COP,ConocoPhillips,Energy,2023,,False,,,none
-COP,ConocoPhillips,Energy,2024,,False,,,none
-CRM,Salesforce,Technology,2016,,False,,,none
-CRM,Salesforce,Technology,2017,,False,,,none
-CRM,Salesforce,Technology,2018,,False,,,none
-CRM,Salesforce,Technology,2019,,False,,,none
-CRM,Salesforce,Technology,2020,,False,,,none
-CRM,Salesforce,Technology,2021,,False,,,none
-CRM,Salesforce,Technology,2022,,False,,,none
-CRM,Salesforce,Technology,2023,,False,,,none
-CRM,Salesforce,Technology,2024,,False,,,none
-CVX,Chevron,Energy,2016,,False,,,none
-CVX,Chevron,Energy,2017,,False,,,none
-CVX,Chevron,Energy,2018,,False,,,none
-CVX,Chevron,Energy,2019,,False,,,none
-CVX,Chevron,Energy,2020,,False,,,none
-CVX,Chevron,Energy,2021,,False,,,none
-CVX,Chevron,Energy,2022,,False,,,none
-CVX,Chevron,Energy,2023,,False,,,none
-CVX,Chevron,Energy,2024,,False,,,none
+COP,ConocoPhillips,Energy,2018,,False,innovation|ethics_integrity|employees,,innovation
+COP,ConocoPhillips,Energy,2019,,False,innovation|safety_quality|employees,,innovation
+COP,ConocoPhillips,Energy,2020,,False,innovation|sustainability_environment|employees,,innovation
+COP,ConocoPhillips,Energy,2021,,False,safety_quality|financial_performance|innovation,,innovation
+COP,ConocoPhillips,Energy,2022,,False,safety_quality|innovation|employees,,innovation
+COP,ConocoPhillips,Energy,2023,,False,safety_quality|sustainability_environment|innovation,,innovation
+COP,ConocoPhillips,Energy,2024,,False,safety_quality|financial_performance|sustainability_environment,,innovation
+CRM,Salesforce,Technology,2016,0.4415,True,innovation|customers_or_patients|community_social_impact,governance_accountability|community_social_impact|diversity_equity_inclusion,customers_or_patients
+CRM,Salesforce,Technology,2017,0.5099,True,innovation|customers_or_patients|employees,governance_accountability|community_social_impact|employees,customers_or_patients
+CRM,Salesforce,Technology,2018,0.6635,True,innovation|customers_or_patients|diversity_equity_inclusion,governance_accountability|community_social_impact|innovation,customers_or_patients
+CRM,Salesforce,Technology,2019,0.6934,True,innovation|customers_or_patients|diversity_equity_inclusion,governance_accountability|community_social_impact|innovation,customers_or_patients
+CRM,Salesforce,Technology,2020,,False,innovation|customers_or_patients|diversity_equity_inclusion,,innovation
+CRM,Salesforce,Technology,2021,,False,innovation|customers_or_patients|employees,,innovation
+CRM,Salesforce,Technology,2022,,False,customers_or_patients|ethics_integrity|employees,,customers_or_patients
+CRM,Salesforce,Technology,2023,,False,customers_or_patients|ethics_integrity|innovation,,customers_or_patients
+CRM,Salesforce,Technology,2024,,False,customers_or_patients|community_social_impact|innovation,,customers_or_patients
+CVX,Chevron,Energy,2016,,False,financial_performance|ethics_integrity|innovation,,innovation
+CVX,Chevron,Energy,2017,,False,employees|ethics_integrity|innovation,,innovation
+CVX,Chevron,Energy,2018,,False,financial_performance|ethics_integrity|innovation,,innovation
+CVX,Chevron,Energy,2019,,False,financial_performance|ethics_integrity|innovation,,innovation
+CVX,Chevron,Energy,2020,,False,innovation|ethics_integrity|employees,,innovation
+CVX,Chevron,Energy,2021,,False,innovation|ethics_integrity|employees,,innovation
+CVX,Chevron,Energy,2022,,False,innovation|ethics_integrity|customers_or_patients,,innovation
+CVX,Chevron,Energy,2023,,False,innovation|ethics_integrity|customers_or_patients,,innovation
+CVX,Chevron,Energy,2024,,False,innovation|ethics_integrity|customers_or_patients,,innovation
 EOG,EOG Resources,Energy,2016,,False,,,none
 EOG,EOG Resources,Energy,2017,,False,,,none
 EOG,EOG Resources,Energy,2018,,False,,,none
@@ -134,92 +134,92 @@ EOG,EOG Resources,Energy,2021,,False,,,none
 EOG,EOG Resources,Energy,2022,,False,,,none
 EOG,EOG Resources,Energy,2023,,False,,,none
 EOG,EOG Resources,Energy,2024,,False,,,none
-F,Ford Motor,Consumer Discretionary,2016,,False,,,none
-F,Ford Motor,Consumer Discretionary,2017,,False,,,none
-F,Ford Motor,Consumer Discretionary,2018,,False,,,none
-F,Ford Motor,Consumer Discretionary,2019,,False,,,none
-F,Ford Motor,Consumer Discretionary,2020,,False,,,none
+F,Ford Motor,Consumer Discretionary,2016,,False,innovation|sustainability_environment|financial_performance,,innovation
+F,Ford Motor,Consumer Discretionary,2017,,False,innovation|sustainability_environment|financial_performance,,innovation
+F,Ford Motor,Consumer Discretionary,2018,,False,innovation|sustainability_environment|financial_performance,,innovation
+F,Ford Motor,Consumer Discretionary,2019,,False,innovation|customers_or_patients|ethics_integrity,,innovation
+F,Ford Motor,Consumer Discretionary,2020,,False,innovation|customers_or_patients|employees,,innovation
 F,Ford Motor,Consumer Discretionary,2021,,False,,,none
 F,Ford Motor,Consumer Discretionary,2022,,False,,,none
 F,Ford Motor,Consumer Discretionary,2023,,False,,,none
 F,Ford Motor,Consumer Discretionary,2024,,False,,,none
-GOOGL,Alphabet,Technology,2016,,False,,,none
-GOOGL,Alphabet,Technology,2017,,False,,,none
-GOOGL,Alphabet,Technology,2018,,False,,,none
-GOOGL,Alphabet,Technology,2019,,False,,,none
-GOOGL,Alphabet,Technology,2020,,False,,,none
-GOOGL,Alphabet,Technology,2021,,False,,,none
-GOOGL,Alphabet,Technology,2022,,False,,,none
-GOOGL,Alphabet,Technology,2023,,False,,,none
-GOOGL,Alphabet,Technology,2024,,False,,,none
-GS,Goldman Sachs,Financials,2016,,False,,,none
-GS,Goldman Sachs,Financials,2017,,False,,,none
-GS,Goldman Sachs,Financials,2018,,False,,,none
-GS,Goldman Sachs,Financials,2019,,False,,,none
-GS,Goldman Sachs,Financials,2020,,False,,,none
-GS,Goldman Sachs,Financials,2021,,False,,,none
-GS,Goldman Sachs,Financials,2022,,False,,,none
-GS,Goldman Sachs,Financials,2023,,False,,,none
-GS,Goldman Sachs,Financials,2024,,False,,,none
+GOOGL,Alphabet,Technology,2016,,False,,governance_accountability|financial_performance|innovation,none
+GOOGL,Alphabet,Technology,2017,,False,,governance_accountability|financial_performance|innovation,none
+GOOGL,Alphabet,Technology,2018,,False,,governance_accountability|financial_performance|innovation,none
+GOOGL,Alphabet,Technology,2019,0.6159,True,customers_or_patients|community_social_impact|innovation,governance_accountability|sustainability_environment|innovation,customers_or_patients
+GOOGL,Alphabet,Technology,2020,0.7144,True,innovation|customers_or_patients|employees,governance_accountability|ethics_integrity|innovation,customers_or_patients
+GOOGL,Alphabet,Technology,2021,0.6479,True,diversity_equity_inclusion|community_social_impact|customers_or_patients,sustainability_environment|governance_accountability|diversity_equity_inclusion,customers_or_patients
+GOOGL,Alphabet,Technology,2022,0.5774,True,diversity_equity_inclusion|community_social_impact|customers_or_patients,sustainability_environment|governance_accountability|innovation,community_social_impact
+GOOGL,Alphabet,Technology,2023,0.6757,True,innovation|community_social_impact|diversity_equity_inclusion,diversity_equity_inclusion|governance_accountability|innovation,community_social_impact
+GOOGL,Alphabet,Technology,2024,0.6571,True,innovation|community_social_impact|customers_or_patients,innovation|governance_accountability|employees,community_social_impact
+GS,Goldman Sachs,Financials,2016,,False,diversity_equity_inclusion|employees|customers_or_patients,,employees
+GS,Goldman Sachs,Financials,2017,,False,diversity_equity_inclusion|employees|customers_or_patients,,employees
+GS,Goldman Sachs,Financials,2018,,False,diversity_equity_inclusion|employees|customers_or_patients,,employees
+GS,Goldman Sachs,Financials,2019,,False,employees|customers_or_patients|community_social_impact,,customers_or_patients
+GS,Goldman Sachs,Financials,2020,,False,employees|customers_or_patients|community_social_impact,,customers_or_patients
+GS,Goldman Sachs,Financials,2021,,False,employees|customers_or_patients|diversity_equity_inclusion,,customers_or_patients
+GS,Goldman Sachs,Financials,2022,,False,employees|customers_or_patients|community_social_impact,,customers_or_patients
+GS,Goldman Sachs,Financials,2023,,False,employees|customers_or_patients|diversity_equity_inclusion,,customers_or_patients
+GS,Goldman Sachs,Financials,2024,,False,employees|customers_or_patients|diversity_equity_inclusion,,customers_or_patients
 HAL,Halliburton,Energy,2016,,False,,,none
 HAL,Halliburton,Energy,2017,,False,,,none
 HAL,Halliburton,Energy,2018,,False,,,none
 HAL,Halliburton,Energy,2019,,False,,,none
 HAL,Halliburton,Energy,2020,,False,,,none
-HAL,Halliburton,Energy,2021,,False,,,none
-HAL,Halliburton,Energy,2022,,False,,,none
-HAL,Halliburton,Energy,2023,,False,,,none
-HAL,Halliburton,Energy,2024,,False,,,none
-HD,Home Depot,Consumer Discretionary,2016,,False,,,none
-HD,Home Depot,Consumer Discretionary,2017,,False,,,none
-HD,Home Depot,Consumer Discretionary,2018,,False,,,none
-HD,Home Depot,Consumer Discretionary,2019,,False,,,none
-HD,Home Depot,Consumer Discretionary,2020,,False,,,none
-HD,Home Depot,Consumer Discretionary,2021,,False,,,none
-HD,Home Depot,Consumer Discretionary,2022,,False,,,none
+HAL,Halliburton,Energy,2021,,False,customers_or_patients|safety_quality|innovation,,customers_or_patients
+HAL,Halliburton,Energy,2022,,False,customers_or_patients|safety_quality|innovation,,customers_or_patients
+HAL,Halliburton,Energy,2023,,False,safety_quality|ethics_integrity|customers_or_patients,,innovation
+HAL,Halliburton,Energy,2024,,False,innovation|customers_or_patients|employees,,innovation
+HD,Home Depot,Consumer Discretionary,2016,,False,customers_or_patients|financial_performance|innovation,,customers_or_patients
+HD,Home Depot,Consumer Discretionary,2017,,False,customers_or_patients|financial_performance|innovation,,customers_or_patients
+HD,Home Depot,Consumer Discretionary,2018,,False,customers_or_patients|financial_performance|innovation,,customers_or_patients
+HD,Home Depot,Consumer Discretionary,2019,,False,customers_or_patients|financial_performance|innovation,,customers_or_patients
+HD,Home Depot,Consumer Discretionary,2020,,False,customers_or_patients|financial_performance|innovation,,customers_or_patients
+HD,Home Depot,Consumer Discretionary,2021,,False,customers_or_patients|financial_performance|innovation,,customers_or_patients
+HD,Home Depot,Consumer Discretionary,2022,,False,customers_or_patients|financial_performance|innovation,,customers_or_patients
 HD,Home Depot,Consumer Discretionary,2023,,False,,,none
 HD,Home Depot,Consumer Discretionary,2024,,False,,,none
 IBM,IBM,Technology,2016,,False,,,none
 IBM,IBM,Technology,2017,,False,,,none
 IBM,IBM,Technology,2018,,False,,,none
 IBM,IBM,Technology,2019,,False,,,none
-IBM,IBM,Technology,2020,,False,,,none
-IBM,IBM,Technology,2021,,False,,,none
-IBM,IBM,Technology,2022,,False,,,none
-IBM,IBM,Technology,2023,,False,,,none
-IBM,IBM,Technology,2024,,False,,,none
-INTC,Intel,Technology,2016,,False,,,none
-INTC,Intel,Technology,2017,,False,,,none
-INTC,Intel,Technology,2018,,False,,,none
-INTC,Intel,Technology,2019,,False,,,none
-INTC,Intel,Technology,2020,,False,,,none
-INTC,Intel,Technology,2021,,False,,,none
-INTC,Intel,Technology,2022,,False,,,none
-INTC,Intel,Technology,2023,,False,,,none
-INTC,Intel,Technology,2024,,False,,,none
-JNJ,Johnson & Johnson,Healthcare,2016,,False,,,none
-JNJ,Johnson & Johnson,Healthcare,2017,,False,,,none
-JNJ,Johnson & Johnson,Healthcare,2018,,False,,,none
-JNJ,Johnson & Johnson,Healthcare,2019,,False,,,none
-JNJ,Johnson & Johnson,Healthcare,2020,,False,,,none
-JNJ,Johnson & Johnson,Healthcare,2021,,False,,,none
-JNJ,Johnson & Johnson,Healthcare,2022,,False,,,none
-JNJ,Johnson & Johnson,Healthcare,2023,,False,,,none
-JNJ,Johnson & Johnson,Healthcare,2024,,False,,,none
+IBM,IBM,Technology,2020,,False,employees|innovation|customers_or_patients,,innovation
+IBM,IBM,Technology,2021,,False,employees|innovation|customers_or_patients,,innovation
+IBM,IBM,Technology,2022,,False,employees|innovation|diversity_equity_inclusion,,innovation
+IBM,IBM,Technology,2023,,False,innovation|customers_or_patients|community_social_impact,,innovation
+IBM,IBM,Technology,2024,,False,innovation|customers_or_patients|sustainability_environment,,innovation
+INTC,Intel,Technology,2016,,False,innovation|community_social_impact|diversity_equity_inclusion,,innovation
+INTC,Intel,Technology,2017,,False,diversity_equity_inclusion|innovation|customers_or_patients,,innovation
+INTC,Intel,Technology,2018,,False,innovation|diversity_equity_inclusion|customers_or_patients,,innovation
+INTC,Intel,Technology,2019,,False,innovation|diversity_equity_inclusion|customers_or_patients,,innovation
+INTC,Intel,Technology,2020,,False,innovation|customers_or_patients|ethics_integrity,,innovation
+INTC,Intel,Technology,2021,,False,innovation|customers_or_patients|diversity_equity_inclusion,,innovation
+INTC,Intel,Technology,2022,,False,innovation|customers_or_patients|diversity_equity_inclusion,,innovation
+INTC,Intel,Technology,2023,,False,innovation|employees|customers_or_patients,,innovation
+INTC,Intel,Technology,2024,,False,innovation|employees|customers_or_patients,,innovation
+JNJ,Johnson & Johnson,Healthcare,2016,,False,innovation|ethics_integrity|customers_or_patients,,innovation
+JNJ,Johnson & Johnson,Healthcare,2017,,False,innovation|ethics_integrity|employees,,innovation
+JNJ,Johnson & Johnson,Healthcare,2018,,False,innovation|ethics_integrity|employees,,innovation
+JNJ,Johnson & Johnson,Healthcare,2019,,False,innovation|ethics_integrity|employees,,innovation
+JNJ,Johnson & Johnson,Healthcare,2020,,False,innovation|ethics_integrity|employees,,innovation
+JNJ,Johnson & Johnson,Healthcare,2021,,False,innovation|community_social_impact|customers_or_patients,,innovation
+JNJ,Johnson & Johnson,Healthcare,2022,,False,innovation|customers_or_patients|diversity_equity_inclusion,,innovation
+JNJ,Johnson & Johnson,Healthcare,2023,,False,innovation|customers_or_patients|employees,,innovation
+JNJ,Johnson & Johnson,Healthcare,2024,,False,customers_or_patients|ethics_integrity|innovation,,customers_or_patients
 JPM,JPMorgan Chase,Financials,2016,,False,,,none
 JPM,JPMorgan Chase,Financials,2017,,False,,,none
 JPM,JPMorgan Chase,Financials,2018,,False,,,none
 JPM,JPMorgan Chase,Financials,2019,,False,,,none
-JPM,JPMorgan Chase,Financials,2020,,False,,,none
-JPM,JPMorgan Chase,Financials,2021,,False,,,none
-JPM,JPMorgan Chase,Financials,2022,,False,,,none
-JPM,JPMorgan Chase,Financials,2023,,False,,,none
-JPM,JPMorgan Chase,Financials,2024,,False,,,none
-LLY,Eli Lilly,Healthcare,2016,,False,,,none
-LLY,Eli Lilly,Healthcare,2017,,False,,,none
-LLY,Eli Lilly,Healthcare,2018,,False,,,none
-LLY,Eli Lilly,Healthcare,2019,,False,,,none
-LLY,Eli Lilly,Healthcare,2020,,False,,,none
+JPM,JPMorgan Chase,Financials,2020,,False,ethics_integrity|governance_accountability|customers_or_patients,,ethics_integrity
+JPM,JPMorgan Chase,Financials,2021,,False,ethics_integrity|governance_accountability|customers_or_patients,,ethics_integrity
+JPM,JPMorgan Chase,Financials,2022,,False,diversity_equity_inclusion|ethics_integrity|customers_or_patients,,diversity_equity_inclusion
+JPM,JPMorgan Chase,Financials,2023,,False,diversity_equity_inclusion|ethics_integrity|customers_or_patients,,diversity_equity_inclusion
+JPM,JPMorgan Chase,Financials,2024,,False,innovation|community_social_impact|customers_or_patients,,innovation
+LLY,Eli Lilly,Healthcare,2016,,False,innovation|customers_or_patients|ethics_integrity,,innovation
+LLY,Eli Lilly,Healthcare,2017,,False,innovation|ethics_integrity|customers_or_patients,,innovation
+LLY,Eli Lilly,Healthcare,2018,,False,innovation|ethics_integrity|customers_or_patients,,innovation
+LLY,Eli Lilly,Healthcare,2019,,False,innovation|customers_or_patients|ethics_integrity,,innovation
+LLY,Eli Lilly,Healthcare,2020,,False,innovation|ethics_integrity|customers_or_patients,,innovation
 LLY,Eli Lilly,Healthcare,2021,,False,,,none
 LLY,Eli Lilly,Healthcare,2022,,False,,,none
 LLY,Eli Lilly,Healthcare,2023,,False,,,none
@@ -228,174 +228,174 @@ LOW,Lowe's,Consumer Discretionary,2016,,False,,,none
 LOW,Lowe's,Consumer Discretionary,2017,,False,,,none
 LOW,Lowe's,Consumer Discretionary,2018,,False,,,none
 LOW,Lowe's,Consumer Discretionary,2019,,False,,,none
-LOW,Lowe's,Consumer Discretionary,2020,,False,,,none
-LOW,Lowe's,Consumer Discretionary,2021,,False,,,none
-LOW,Lowe's,Consumer Discretionary,2022,,False,,,none
-LOW,Lowe's,Consumer Discretionary,2023,,False,,,none
-LOW,Lowe's,Consumer Discretionary,2024,,False,,,none
+LOW,Lowe's,Consumer Discretionary,2020,,False,customers_or_patients|employees|community_social_impact,,customers_or_patients
+LOW,Lowe's,Consumer Discretionary,2021,,False,customers_or_patients|employees|community_social_impact,,customers_or_patients
+LOW,Lowe's,Consumer Discretionary,2022,,False,customers_or_patients|employees|community_social_impact,,customers_or_patients
+LOW,Lowe's,Consumer Discretionary,2023,,False,customers_or_patients|employees|community_social_impact,,customers_or_patients
+LOW,Lowe's,Consumer Discretionary,2024,,False,customers_or_patients|employees|innovation,,customers_or_patients
 MCD,McDonald's,Consumer Discretionary,2016,,False,,,none
 MCD,McDonald's,Consumer Discretionary,2017,,False,,,none
 MCD,McDonald's,Consumer Discretionary,2018,,False,,,none
 MCD,McDonald's,Consumer Discretionary,2019,,False,,,none
-MCD,McDonald's,Consumer Discretionary,2020,,False,,,none
-MCD,McDonald's,Consumer Discretionary,2021,,False,,,none
-MCD,McDonald's,Consumer Discretionary,2022,,False,,,none
-MCD,McDonald's,Consumer Discretionary,2023,,False,,,none
-MCD,McDonald's,Consumer Discretionary,2024,,False,,,none
-MDT,Medtronic,Healthcare,2016,,False,,,none
-MDT,Medtronic,Healthcare,2017,,False,,,none
-MDT,Medtronic,Healthcare,2018,,False,,,none
-MDT,Medtronic,Healthcare,2019,,False,,,none
-MDT,Medtronic,Healthcare,2020,,False,,,none
-MDT,Medtronic,Healthcare,2021,,False,,,none
+MCD,McDonald's,Consumer Discretionary,2020,,False,community_social_impact|ethics_integrity|customers_or_patients,,customers_or_patients
+MCD,McDonald's,Consumer Discretionary,2021,,False,community_social_impact|ethics_integrity|customers_or_patients,,community_social_impact
+MCD,McDonald's,Consumer Discretionary,2022,,False,community_social_impact|ethics_integrity|customers_or_patients,,community_social_impact
+MCD,McDonald's,Consumer Discretionary,2023,,False,community_social_impact|ethics_integrity|customers_or_patients,,community_social_impact
+MCD,McDonald's,Consumer Discretionary,2024,,False,customers_or_patients|community_social_impact|employees,,customers_or_patients
+MDT,Medtronic,Healthcare,2016,,False,customers_or_patients|governance_accountability|employees,,customers_or_patients
+MDT,Medtronic,Healthcare,2017,,False,customers_or_patients|governance_accountability|employees,,customers_or_patients
+MDT,Medtronic,Healthcare,2018,,False,customers_or_patients|governance_accountability|employees,,customers_or_patients
+MDT,Medtronic,Healthcare,2019,,False,ethics_integrity|governance_accountability|customers_or_patients,,customers_or_patients
+MDT,Medtronic,Healthcare,2020,,False,customers_or_patients|employees|innovation,,customers_or_patients
+MDT,Medtronic,Healthcare,2021,,False,customers_or_patients|innovation|diversity_equity_inclusion,,customers_or_patients
 MDT,Medtronic,Healthcare,2022,,False,,,none
 MDT,Medtronic,Healthcare,2023,,False,,,none
 MDT,Medtronic,Healthcare,2024,,False,,,none
-META,Meta Platforms,Technology,2016,,False,,,none
-META,Meta Platforms,Technology,2017,,False,,,none
-META,Meta Platforms,Technology,2018,,False,,,none
-META,Meta Platforms,Technology,2019,,False,,,none
-META,Meta Platforms,Technology,2020,,False,,,none
-META,Meta Platforms,Technology,2021,,False,,,none
-META,Meta Platforms,Technology,2022,,False,,governance_accountability|community_social_impact|innovation,none
-META,Meta Platforms,Technology,2023,,False,,governance_accountability|safety_quality|financial_performance,none
-META,Meta Platforms,Technology,2024,,False,,,none
+META,Meta Platforms,Technology,2016,0.0806,True,customers_or_patients|ethics_integrity|innovation,governance_accountability|financial_performance|employees,customers_or_patients
+META,Meta Platforms,Technology,2017,0.0,True,customers_or_patients|innovation,governance_accountability|ethics_integrity|employees,customers_or_patients
+META,Meta Platforms,Technology,2018,,False,,governance_accountability|ethics_integrity|innovation,none
+META,Meta Platforms,Technology,2019,,False,,governance_accountability|diversity_equity_inclusion|employees,none
+META,Meta Platforms,Technology,2020,,False,,governance_accountability|ethics_integrity|employees,none
+META,Meta Platforms,Technology,2021,,False,,diversity_equity_inclusion|governance_accountability|innovation,none
+META,Meta Platforms,Technology,2022,0.5849,True,innovation|safety_quality|customers_or_patients,governance_accountability|community_social_impact|innovation,innovation
+META,Meta Platforms,Technology,2023,0.6828,True,innovation|safety_quality|customers_or_patients,governance_accountability|safety_quality|financial_performance,innovation
+META,Meta Platforms,Technology,2024,0.68,True,innovation|safety_quality|customers_or_patients,financial_performance|governance_accountability|innovation,none
 MPC,Marathon Petroleum,Energy,2016,,False,,,none
 MPC,Marathon Petroleum,Energy,2017,,False,,,none
 MPC,Marathon Petroleum,Energy,2018,,False,,,none
-MPC,Marathon Petroleum,Energy,2019,,False,,,none
-MPC,Marathon Petroleum,Energy,2020,,False,,,none
-MPC,Marathon Petroleum,Energy,2021,,False,,,none
-MPC,Marathon Petroleum,Energy,2022,,False,,,none
-MPC,Marathon Petroleum,Energy,2023,,False,,,none
-MPC,Marathon Petroleum,Energy,2024,,False,,,none
-MRK,Merck,Healthcare,2016,,False,,,none
-MRK,Merck,Healthcare,2017,,False,,,none
-MRK,Merck,Healthcare,2018,,False,,,none
-MRK,Merck,Healthcare,2019,,False,,,none
-MRK,Merck,Healthcare,2020,,False,,,none
+MPC,Marathon Petroleum,Energy,2019,,False,safety_quality|ethics_integrity|employees,,employees
+MPC,Marathon Petroleum,Energy,2020,,False,safety_quality|financial_performance|governance_accountability,,employees
+MPC,Marathon Petroleum,Energy,2021,,False,safety_quality|financial_performance|governance_accountability,,employees
+MPC,Marathon Petroleum,Energy,2022,,False,safety_quality|financial_performance|governance_accountability,,employees
+MPC,Marathon Petroleum,Energy,2023,,False,safety_quality|financial_performance|governance_accountability,,employees
+MPC,Marathon Petroleum,Energy,2024,,False,safety_quality|financial_performance|governance_accountability,,employees
+MRK,Merck,Healthcare,2016,,False,innovation|customers_or_patients|community_social_impact,,innovation
+MRK,Merck,Healthcare,2017,,False,customers_or_patients|community_social_impact|employees,,customers_or_patients
+MRK,Merck,Healthcare,2018,,False,customers_or_patients|safety_quality|employees,,customers_or_patients
+MRK,Merck,Healthcare,2019,,False,customers_or_patients|safety_quality|employees,,customers_or_patients
+MRK,Merck,Healthcare,2020,,False,diversity_equity_inclusion|community_social_impact|customers_or_patients,,diversity_equity_inclusion
 MRK,Merck,Healthcare,2021,,False,,,none
 MRK,Merck,Healthcare,2022,,False,,,none
 MRK,Merck,Healthcare,2023,,False,,,none
 MRK,Merck,Healthcare,2024,,False,,,none
-MS,Morgan Stanley,Financials,2016,,False,,,none
-MS,Morgan Stanley,Financials,2017,,False,,,none
-MS,Morgan Stanley,Financials,2018,,False,,,none
-MS,Morgan Stanley,Financials,2019,,False,,,none
-MS,Morgan Stanley,Financials,2020,,False,,,none
-MS,Morgan Stanley,Financials,2021,,False,,,none
-MS,Morgan Stanley,Financials,2022,,False,,,none
-MS,Morgan Stanley,Financials,2023,,False,,,none
-MS,Morgan Stanley,Financials,2024,,False,,,none
-MSFT,Microsoft,Technology,2016,,False,,,none
-MSFT,Microsoft,Technology,2017,,False,,,none
-MSFT,Microsoft,Technology,2018,,False,,,none
-MSFT,Microsoft,Technology,2019,,False,,,none
-MSFT,Microsoft,Technology,2020,,False,,,none
-MSFT,Microsoft,Technology,2021,,False,,,none
-MSFT,Microsoft,Technology,2022,,False,,,none
-MSFT,Microsoft,Technology,2023,,False,,,none
-MSFT,Microsoft,Technology,2024,,False,,,none
+MS,Morgan Stanley,Financials,2016,,False,community_social_impact|sustainability_environment|innovation,,community_social_impact
+MS,Morgan Stanley,Financials,2017,,False,community_social_impact|sustainability_environment|innovation,,community_social_impact
+MS,Morgan Stanley,Financials,2018,,False,community_social_impact|sustainability_environment|innovation,,community_social_impact
+MS,Morgan Stanley,Financials,2019,,False,community_social_impact|sustainability_environment|innovation,,community_social_impact
+MS,Morgan Stanley,Financials,2020,,False,community_social_impact|sustainability_environment|customers_or_patients,,community_social_impact
+MS,Morgan Stanley,Financials,2021,,False,community_social_impact|sustainability_environment|customers_or_patients,,community_social_impact
+MS,Morgan Stanley,Financials,2022,,False,community_social_impact|sustainability_environment|employees,,community_social_impact
+MS,Morgan Stanley,Financials,2023,,False,community_social_impact|sustainability_environment|customers_or_patients,,community_social_impact
+MS,Morgan Stanley,Financials,2024,,False,community_social_impact|sustainability_environment|customers_or_patients,,community_social_impact
+MSFT,Microsoft,Technology,2016,0.7638,True,innovation|community_social_impact|customers_or_patients,governance_accountability|financial_performance|innovation,sustainability_environment
+MSFT,Microsoft,Technology,2017,0.4945,True,innovation|sustainability_environment|community_social_impact,financial_performance|governance_accountability|innovation,innovation
+MSFT,Microsoft,Technology,2018,0.5534,True,innovation|sustainability_environment|community_social_impact,financial_performance|governance_accountability|customers_or_patients,innovation
+MSFT,Microsoft,Technology,2019,0.5916,True,innovation|community_social_impact|customers_or_patients,financial_performance|governance_accountability|innovation,community_social_impact
+MSFT,Microsoft,Technology,2020,0.5854,True,innovation|community_social_impact|customers_or_patients,financial_performance|governance_accountability|diversity_equity_inclusion,none
+MSFT,Microsoft,Technology,2021,0.5706,True,community_social_impact|sustainability_environment|innovation,financial_performance|governance_accountability|customers_or_patients,community_social_impact
+MSFT,Microsoft,Technology,2022,0.6237,True,community_social_impact|sustainability_environment|customers_or_patients,financial_performance|governance_accountability|sustainability_environment,community_social_impact
+MSFT,Microsoft,Technology,2023,0.5499,True,ethics_integrity|customers_or_patients|employees,financial_performance|governance_accountability|sustainability_environment,none
+MSFT,Microsoft,Technology,2024,0.6885,True,community_social_impact|sustainability_environment|customers_or_patients,financial_performance|governance_accountability|customers_or_patients,community_social_impact
 NKE,Nike,Consumer Discretionary,2016,,False,,,none
 NKE,Nike,Consumer Discretionary,2017,,False,,,none
-NKE,Nike,Consumer Discretionary,2018,,False,,,none
-NKE,Nike,Consumer Discretionary,2019,,False,,,none
-NKE,Nike,Consumer Discretionary,2020,,False,,,none
-NKE,Nike,Consumer Discretionary,2021,,False,,,none
-NKE,Nike,Consumer Discretionary,2022,,False,,,none
+NKE,Nike,Consumer Discretionary,2018,,False,innovation|sustainability_environment|employees,,innovation
+NKE,Nike,Consumer Discretionary,2019,,False,innovation|sustainability_environment|employees,,innovation
+NKE,Nike,Consumer Discretionary,2020,,False,innovation|sustainability_environment|employees,,innovation
+NKE,Nike,Consumer Discretionary,2021,,False,innovation|sustainability_environment|employees,,innovation
+NKE,Nike,Consumer Discretionary,2022,,False,innovation|sustainability_environment|employees,,innovation
 NKE,Nike,Consumer Discretionary,2023,,False,,,none
 NKE,Nike,Consumer Discretionary,2024,,False,,,none
-NVDA,NVIDIA,Technology,2016,,False,,,none
-NVDA,NVIDIA,Technology,2017,,False,,,none
-NVDA,NVIDIA,Technology,2018,,False,,,none
-NVDA,NVIDIA,Technology,2019,,False,,,none
-NVDA,NVIDIA,Technology,2020,,False,,,none
-NVDA,NVIDIA,Technology,2021,,False,,,none
-NVDA,NVIDIA,Technology,2022,,False,,,none
-NVDA,NVIDIA,Technology,2023,,False,,,none
-NVDA,NVIDIA,Technology,2024,,False,,,none
+NVDA,NVIDIA,Technology,2016,,False,,governance_accountability|financial_performance|employees,none
+NVDA,NVIDIA,Technology,2017,,False,,governance_accountability|financial_performance|employees,none
+NVDA,NVIDIA,Technology,2018,,False,,governance_accountability|financial_performance|innovation,none
+NVDA,NVIDIA,Technology,2019,,False,,financial_performance|governance_accountability|innovation,none
+NVDA,NVIDIA,Technology,2020,,False,,financial_performance|governance_accountability|employees,none
+NVDA,NVIDIA,Technology,2021,,False,,financial_performance|governance_accountability|innovation,none
+NVDA,NVIDIA,Technology,2022,,False,,governance_accountability,none
+NVDA,NVIDIA,Technology,2023,0.426,True,innovation|employees|customers_or_patients,financial_performance|governance_accountability|innovation,innovation
+NVDA,NVIDIA,Technology,2024,0.6487,True,innovation|sustainability_environment|employees,financial_performance|governance_accountability|innovation,customers_or_patients
 ORCL,Oracle,Technology,2016,,False,,,none
 ORCL,Oracle,Technology,2017,,False,,,none
-ORCL,Oracle,Technology,2018,,False,,,none
-ORCL,Oracle,Technology,2019,,False,,,none
-ORCL,Oracle,Technology,2020,,False,,,none
-ORCL,Oracle,Technology,2021,,False,,,none
-ORCL,Oracle,Technology,2022,,False,,,none
-ORCL,Oracle,Technology,2023,,False,,,none
-ORCL,Oracle,Technology,2024,,False,,,none
+ORCL,Oracle,Technology,2018,,False,innovation|customers_or_patients|employees,,innovation
+ORCL,Oracle,Technology,2019,,False,innovation|financial_performance|customers_or_patients,,innovation
+ORCL,Oracle,Technology,2020,,False,innovation|financial_performance|customers_or_patients,,innovation
+ORCL,Oracle,Technology,2021,,False,innovation|financial_performance|employees,,innovation
+ORCL,Oracle,Technology,2022,,False,innovation|financial_performance|customers_or_patients,,innovation
+ORCL,Oracle,Technology,2023,,False,innovation|financial_performance|customers_or_patients,,innovation
+ORCL,Oracle,Technology,2024,,False,innovation|financial_performance|customers_or_patients,,innovation
 OXY,Occidental Petroleum,Energy,2016,,False,,,none
 OXY,Occidental Petroleum,Energy,2017,,False,,,none
 OXY,Occidental Petroleum,Energy,2018,,False,,,none
 OXY,Occidental Petroleum,Energy,2019,,False,,,none
 OXY,Occidental Petroleum,Energy,2020,,False,,,none
-OXY,Occidental Petroleum,Energy,2021,,False,,,none
-OXY,Occidental Petroleum,Energy,2022,,False,,,none
-OXY,Occidental Petroleum,Energy,2023,,False,,,none
-OXY,Occidental Petroleum,Energy,2024,,False,,,none
-PFE,Pfizer,Healthcare,2016,,False,,,none
-PFE,Pfizer,Healthcare,2017,,False,,,none
-PFE,Pfizer,Healthcare,2018,,False,,,none
-PFE,Pfizer,Healthcare,2019,,False,,,none
-PFE,Pfizer,Healthcare,2020,,False,,,none
-PFE,Pfizer,Healthcare,2021,,False,,,none
-PFE,Pfizer,Healthcare,2022,,False,,,none
-PFE,Pfizer,Healthcare,2023,,False,,,none
-PFE,Pfizer,Healthcare,2024,,False,,,none
+OXY,Occidental Petroleum,Energy,2021,,False,sustainability_environment|ethics_integrity|innovation,,sustainability_environment
+OXY,Occidental Petroleum,Energy,2022,,False,sustainability_environment|safety_quality|innovation,,sustainability_environment
+OXY,Occidental Petroleum,Energy,2023,,False,sustainability_environment|safety_quality|innovation,,sustainability_environment
+OXY,Occidental Petroleum,Energy,2024,,False,sustainability_environment|safety_quality|innovation,,sustainability_environment
+PFE,Pfizer,Healthcare,2016,,False,customers_or_patients|community_social_impact|innovation,,customers_or_patients
+PFE,Pfizer,Healthcare,2017,,False,customers_or_patients|community_social_impact|innovation,,customers_or_patients
+PFE,Pfizer,Healthcare,2018,,False,customers_or_patients|safety_quality|employees,,customers_or_patients
+PFE,Pfizer,Healthcare,2019,,False,customers_or_patients|community_social_impact|innovation,,customers_or_patients
+PFE,Pfizer,Healthcare,2020,,False,customers_or_patients|community_social_impact|innovation,,customers_or_patients
+PFE,Pfizer,Healthcare,2021,,False,innovation|ethics_integrity|customers_or_patients,,innovation
+PFE,Pfizer,Healthcare,2022,,False,innovation|customers_or_patients|diversity_equity_inclusion,,innovation
+PFE,Pfizer,Healthcare,2023,,False,innovation|ethics_integrity|customers_or_patients,,innovation
+PFE,Pfizer,Healthcare,2024,,False,innovation|customers_or_patients|employees,,innovation
 PSX,Phillips 66,Energy,2016,,False,,,none
-PSX,Phillips 66,Energy,2017,,False,,,none
-PSX,Phillips 66,Energy,2018,,False,,,none
-PSX,Phillips 66,Energy,2019,,False,,,none
-PSX,Phillips 66,Energy,2020,,False,,,none
-PSX,Phillips 66,Energy,2021,,False,,,none
-PSX,Phillips 66,Energy,2022,,False,,,none
+PSX,Phillips 66,Energy,2017,,False,safety_quality|financial_performance|ethics_integrity,,employees
+PSX,Phillips 66,Energy,2018,,False,safety_quality|financial_performance|ethics_integrity,,safety_quality
+PSX,Phillips 66,Energy,2019,,False,safety_quality|financial_performance|ethics_integrity,,financial_performance
+PSX,Phillips 66,Energy,2020,,False,safety_quality|financial_performance|ethics_integrity,,financial_performance
+PSX,Phillips 66,Energy,2021,,False,safety_quality|financial_performance|ethics_integrity,,financial_performance
+PSX,Phillips 66,Energy,2022,,False,financial_performance|safety_quality|ethics_integrity,,financial_performance
 PSX,Phillips 66,Energy,2023,,False,,,none
 PSX,Phillips 66,Energy,2024,,False,,,none
-SBUX,Starbucks,Consumer Discretionary,2016,,False,,,none
-SBUX,Starbucks,Consumer Discretionary,2017,,False,,,none
-SBUX,Starbucks,Consumer Discretionary,2018,,False,,,none
-SBUX,Starbucks,Consumer Discretionary,2019,,False,,,none
-SBUX,Starbucks,Consumer Discretionary,2020,,False,,,none
-SBUX,Starbucks,Consumer Discretionary,2021,,False,,,none
-SBUX,Starbucks,Consumer Discretionary,2022,,False,,,none
-SBUX,Starbucks,Consumer Discretionary,2023,,False,,,none
-SBUX,Starbucks,Consumer Discretionary,2024,,False,,,none
-SCHW,Charles Schwab,Financials,2016,,False,,,none
-SCHW,Charles Schwab,Financials,2017,,False,,,none
-SCHW,Charles Schwab,Financials,2018,,False,,,none
-SCHW,Charles Schwab,Financials,2019,,False,,,none
-SCHW,Charles Schwab,Financials,2020,,False,,,none
-SCHW,Charles Schwab,Financials,2021,,False,,,none
-SCHW,Charles Schwab,Financials,2022,,False,,,none
-SCHW,Charles Schwab,Financials,2023,,False,,,none
-SCHW,Charles Schwab,Financials,2024,,False,,,none
+SBUX,Starbucks,Consumer Discretionary,2016,,False,customers_or_patients,,customers_or_patients
+SBUX,Starbucks,Consumer Discretionary,2017,,False,customers_or_patients|ethics_integrity|innovation,,customers_or_patients
+SBUX,Starbucks,Consumer Discretionary,2018,,False,customers_or_patients|ethics_integrity|innovation,,customers_or_patients
+SBUX,Starbucks,Consumer Discretionary,2019,,False,customers_or_patients|community_social_impact|employees,,customers_or_patients
+SBUX,Starbucks,Consumer Discretionary,2020,,False,customers_or_patients|ethics_integrity|community_social_impact,,customers_or_patients
+SBUX,Starbucks,Consumer Discretionary,2021,,False,customers_or_patients|community_social_impact|ethics_integrity,,customers_or_patients
+SBUX,Starbucks,Consumer Discretionary,2022,,False,employees|community_social_impact|customers_or_patients,,employees
+SBUX,Starbucks,Consumer Discretionary,2023,,False,employees|community_social_impact|customers_or_patients,,employees
+SBUX,Starbucks,Consumer Discretionary,2024,,False,employees|community_social_impact|customers_or_patients,,employees
+SCHW,Charles Schwab,Financials,2016,,False,innovation|customers_or_patients|employees,,innovation
+SCHW,Charles Schwab,Financials,2017,,False,innovation|customers_or_patients|community_social_impact,,innovation
+SCHW,Charles Schwab,Financials,2018,,False,innovation|customers_or_patients|community_social_impact,,innovation
+SCHW,Charles Schwab,Financials,2019,,False,customers_or_patients|financial_performance|diversity_equity_inclusion,,customers_or_patients
+SCHW,Charles Schwab,Financials,2020,,False,innovation|customers_or_patients|financial_performance,,innovation
+SCHW,Charles Schwab,Financials,2021,,False,customers_or_patients|financial_performance|innovation,,customers_or_patients
+SCHW,Charles Schwab,Financials,2022,,False,customers_or_patients|financial_performance|innovation,,customers_or_patients
+SCHW,Charles Schwab,Financials,2023,,False,customers_or_patients|financial_performance|innovation,,customers_or_patients
+SCHW,Charles Schwab,Financials,2024,,False,customers_or_patients|ethics_integrity|innovation,,customers_or_patients
 SLB,SLB,Energy,2016,,False,,,none
 SLB,SLB,Energy,2017,,False,,,none
 SLB,SLB,Energy,2018,,False,,,none
-SLB,SLB,Energy,2019,,False,,,none
-SLB,SLB,Energy,2020,,False,,,none
-SLB,SLB,Energy,2021,,False,,,none
-SLB,SLB,Energy,2022,,False,,,none
-SLB,SLB,Energy,2023,,False,,,none
-SLB,SLB,Energy,2024,,False,,,none
-TGT,Target,Consumer Discretionary,2016,,False,,,none
-TGT,Target,Consumer Discretionary,2017,,False,,,none
-TGT,Target,Consumer Discretionary,2018,,False,,,none
-TGT,Target,Consumer Discretionary,2019,,False,,,none
-TGT,Target,Consumer Discretionary,2020,,False,,,none
-TGT,Target,Consumer Discretionary,2021,,False,,,none
-TGT,Target,Consumer Discretionary,2022,,False,,,none
-TGT,Target,Consumer Discretionary,2023,,False,,,none
-TGT,Target,Consumer Discretionary,2024,,False,,,none
-TJX,TJX Companies,Consumer Discretionary,2016,,False,,,none
-TJX,TJX Companies,Consumer Discretionary,2017,,False,,,none
-TJX,TJX Companies,Consumer Discretionary,2018,,False,,,none
-TJX,TJX Companies,Consumer Discretionary,2019,,False,,,none
-TJX,TJX Companies,Consumer Discretionary,2020,,False,,,none
-TJX,TJX Companies,Consumer Discretionary,2021,,False,,,none
-TJX,TJX Companies,Consumer Discretionary,2022,,False,,,none
-TJX,TJX Companies,Consumer Discretionary,2023,,False,,,none
+SLB,SLB,Energy,2019,,False,innovation,,innovation
+SLB,SLB,Energy,2020,,False,innovation,,innovation
+SLB,SLB,Energy,2021,,False,innovation|safety_quality,,innovation
+SLB,SLB,Energy,2022,,False,innovation|sustainability_environment|customers_or_patients,,innovation
+SLB,SLB,Energy,2023,,False,innovation|sustainability_environment|customers_or_patients,,innovation
+SLB,SLB,Energy,2024,,False,innovation|sustainability_environment|employees,,innovation
+TGT,Target,Consumer Discretionary,2016,,False,innovation|customers_or_patients|diversity_equity_inclusion,,innovation
+TGT,Target,Consumer Discretionary,2017,,False,innovation|customers_or_patients|diversity_equity_inclusion,,innovation
+TGT,Target,Consumer Discretionary,2018,,False,innovation|customers_or_patients|diversity_equity_inclusion,,innovation
+TGT,Target,Consumer Discretionary,2019,,False,customers_or_patients|community_social_impact|innovation,,customers_or_patients
+TGT,Target,Consumer Discretionary,2020,,False,customers_or_patients|community_social_impact|employees,,customers_or_patients
+TGT,Target,Consumer Discretionary,2021,,False,customers_or_patients|financial_performance|employees,,customers_or_patients
+TGT,Target,Consumer Discretionary,2022,,False,customers_or_patients|community_social_impact|employees,,customers_or_patients
+TGT,Target,Consumer Discretionary,2023,,False,customers_or_patients|community_social_impact|employees,,customers_or_patients
+TGT,Target,Consumer Discretionary,2024,,False,employees|community_social_impact|customers_or_patients,,customers_or_patients
+TJX,TJX Companies,Consumer Discretionary,2016,,False,financial_performance|customers_or_patients|innovation,,financial_performance
+TJX,TJX Companies,Consumer Discretionary,2017,,False,financial_performance|customers_or_patients|innovation,,customers_or_patients
+TJX,TJX Companies,Consumer Discretionary,2018,,False,financial_performance|customers_or_patients|innovation,,financial_performance
+TJX,TJX Companies,Consumer Discretionary,2019,,False,financial_performance|customers_or_patients|innovation,,financial_performance
+TJX,TJX Companies,Consumer Discretionary,2020,,False,financial_performance|customers_or_patients|innovation,,customers_or_patients
+TJX,TJX Companies,Consumer Discretionary,2021,,False,financial_performance|customers_or_patients|innovation,,customers_or_patients
+TJX,TJX Companies,Consumer Discretionary,2022,,False,financial_performance|customers_or_patients|innovation,,customers_or_patients
+TJX,TJX Companies,Consumer Discretionary,2023,,False,financial_performance|customers_or_patients|innovation,,customers_or_patients
 TJX,TJX Companies,Consumer Discretionary,2024,,False,,,none
-TMO,Thermo Fisher Scientific,Healthcare,2016,,False,,,none
+TMO,Thermo Fisher Scientific,Healthcare,2016,,False,innovation|customers_or_patients|sustainability_environment,,innovation
 TMO,Thermo Fisher Scientific,Healthcare,2017,,False,,,none
 TMO,Thermo Fisher Scientific,Healthcare,2018,,False,,,none
 TMO,Thermo Fisher Scientific,Healthcare,2019,,False,,,none
@@ -404,48 +404,48 @@ TMO,Thermo Fisher Scientific,Healthcare,2021,,False,,,none
 TMO,Thermo Fisher Scientific,Healthcare,2022,,False,,,none
 TMO,Thermo Fisher Scientific,Healthcare,2023,,False,,,none
 TMO,Thermo Fisher Scientific,Healthcare,2024,,False,,,none
-TSLA,Tesla,Consumer Discretionary,2016,,False,,,none
-TSLA,Tesla,Consumer Discretionary,2017,,False,,,none
-TSLA,Tesla,Consumer Discretionary,2018,,False,,,none
-TSLA,Tesla,Consumer Discretionary,2019,,False,,,none
-TSLA,Tesla,Consumer Discretionary,2020,,False,,,none
-TSLA,Tesla,Consumer Discretionary,2021,,False,,,none
-TSLA,Tesla,Consumer Discretionary,2022,,False,,,none
-TSLA,Tesla,Consumer Discretionary,2023,,False,,,none
-TSLA,Tesla,Consumer Discretionary,2024,,False,,,none
+TSLA,Tesla,Consumer Discretionary,2016,,False,innovation|sustainability_environment|customers_or_patients,,innovation
+TSLA,Tesla,Consumer Discretionary,2017,,False,innovation|sustainability_environment|customers_or_patients,,innovation
+TSLA,Tesla,Consumer Discretionary,2018,,False,innovation|sustainability_environment|safety_quality,,innovation
+TSLA,Tesla,Consumer Discretionary,2019,,False,innovation|sustainability_environment|safety_quality,,innovation
+TSLA,Tesla,Consumer Discretionary,2020,,False,innovation|sustainability_environment|safety_quality,,innovation
+TSLA,Tesla,Consumer Discretionary,2021,,False,innovation|sustainability_environment|safety_quality,,innovation
+TSLA,Tesla,Consumer Discretionary,2022,,False,innovation|sustainability_environment|safety_quality,,innovation
+TSLA,Tesla,Consumer Discretionary,2023,,False,innovation|sustainability_environment|employees,,innovation
+TSLA,Tesla,Consumer Discretionary,2024,,False,innovation|sustainability_environment|employees,,innovation
 UNH,UnitedHealth Group,Healthcare,2016,,False,,,none
 UNH,UnitedHealth Group,Healthcare,2017,,False,,,none
-UNH,UnitedHealth Group,Healthcare,2018,,False,,,none
-UNH,UnitedHealth Group,Healthcare,2019,,False,,,none
-UNH,UnitedHealth Group,Healthcare,2020,,False,,,none
-UNH,UnitedHealth Group,Healthcare,2021,,False,,,none
-UNH,UnitedHealth Group,Healthcare,2022,,False,,,none
+UNH,UnitedHealth Group,Healthcare,2018,,False,innovation|customers_or_patients|employees,,innovation
+UNH,UnitedHealth Group,Healthcare,2019,,False,innovation|customers_or_patients|employees,,innovation
+UNH,UnitedHealth Group,Healthcare,2020,,False,customers_or_patients|ethics_integrity|employees,,customers_or_patients
+UNH,UnitedHealth Group,Healthcare,2021,,False,customers_or_patients|ethics_integrity|employees,,customers_or_patients
+UNH,UnitedHealth Group,Healthcare,2022,,False,customers_or_patients|governance_accountability|employees,,customers_or_patients
 UNH,UnitedHealth Group,Healthcare,2023,,False,,,none
 UNH,UnitedHealth Group,Healthcare,2024,,False,,,none
 VLO,Valero Energy,Energy,2016,,False,,,none
 VLO,Valero Energy,Energy,2017,,False,,,none
 VLO,Valero Energy,Energy,2018,,False,,,none
 VLO,Valero Energy,Energy,2019,,False,,,none
-VLO,Valero Energy,Energy,2020,,False,,,none
-VLO,Valero Energy,Energy,2021,,False,,,none
-VLO,Valero Energy,Energy,2022,,False,,,none
-VLO,Valero Energy,Energy,2023,,False,,,none
-VLO,Valero Energy,Energy,2024,,False,,,none
-WFC,Wells Fargo,Financials,2016,,False,,,none
-WFC,Wells Fargo,Financials,2017,,False,,,none
-WFC,Wells Fargo,Financials,2018,,False,,,none
-WFC,Wells Fargo,Financials,2019,,False,,,none
-WFC,Wells Fargo,Financials,2020,,False,,,none
-WFC,Wells Fargo,Financials,2021,,False,,,none
-WFC,Wells Fargo,Financials,2022,,False,,,none
-WFC,Wells Fargo,Financials,2023,,False,,,none
-WFC,Wells Fargo,Financials,2024,,False,,,none
+VLO,Valero Energy,Energy,2020,,False,safety_quality|governance_accountability|innovation,,innovation
+VLO,Valero Energy,Energy,2021,,False,safety_quality|governance_accountability|innovation,,innovation
+VLO,Valero Energy,Energy,2022,,False,safety_quality|governance_accountability|innovation,,innovation
+VLO,Valero Energy,Energy,2023,,False,safety_quality|governance_accountability|innovation,,innovation
+VLO,Valero Energy,Energy,2024,,False,safety_quality|sustainability_environment|community_social_impact,,sustainability_environment
+WFC,Wells Fargo,Financials,2016,,False,community_social_impact|financial_performance|customers_or_patients,,community_social_impact
+WFC,Wells Fargo,Financials,2017,,False,community_social_impact|financial_performance|customers_or_patients,,community_social_impact
+WFC,Wells Fargo,Financials,2018,,False,community_social_impact|financial_performance|customers_or_patients,,community_social_impact
+WFC,Wells Fargo,Financials,2019,,False,community_social_impact|financial_performance|customers_or_patients,,community_social_impact
+WFC,Wells Fargo,Financials,2020,,False,community_social_impact|financial_performance|diversity_equity_inclusion,,community_social_impact
+WFC,Wells Fargo,Financials,2021,,False,community_social_impact|financial_performance|diversity_equity_inclusion,,community_social_impact
+WFC,Wells Fargo,Financials,2022,,False,community_social_impact|governance_accountability|diversity_equity_inclusion,,community_social_impact
+WFC,Wells Fargo,Financials,2023,,False,community_social_impact|governance_accountability|customers_or_patients,,community_social_impact
+WFC,Wells Fargo,Financials,2024,,False,community_social_impact|financial_performance|customers_or_patients,,community_social_impact
 XOM,ExxonMobil,Energy,2016,,False,,,none
 XOM,ExxonMobil,Energy,2017,,False,,,none
 XOM,ExxonMobil,Energy,2018,,False,,,none
 XOM,ExxonMobil,Energy,2019,,False,,,none
 XOM,ExxonMobil,Energy,2020,,False,,,none
-XOM,ExxonMobil,Energy,2021,,False,,,none
-XOM,ExxonMobil,Energy,2022,,False,,,none
-XOM,ExxonMobil,Energy,2023,,False,,,none
+XOM,ExxonMobil,Energy,2021,,False,safety_quality|financial_performance|governance_accountability,,innovation
+XOM,ExxonMobil,Energy,2022,,False,financial_performance|governance_accountability|innovation,,innovation
+XOM,ExxonMobil,Energy,2023,,False,ethics_integrity|governance_accountability|financial_performance,,ethics_integrity
 XOM,ExxonMobil,Energy,2024,,False,,,none

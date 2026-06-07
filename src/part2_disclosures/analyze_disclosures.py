@@ -114,7 +114,7 @@ def run_all(force: bool = False, model: str = "claude-haiku-4-5-20251001"):
                         cache_path=llm_cache,
                         force=force,
                     )
-                    time.sleep(70)
+                    time.sleep(7)
 
             theme_scores = {}
             dominant = []

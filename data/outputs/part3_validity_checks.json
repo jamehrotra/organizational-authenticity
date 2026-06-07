@@ -1,6 +1,130 @@
 {
-  "face_validity_top10": [],
-  "face_validity_bottom10": [],
-  "most_volatile": [],
-  "most_stable": []
+  "face_validity_top10": [
+    {
+      "ticker": "GOOGL",
+      "company_name": "Alphabet",
+      "sector": "Technology",
+      "authenticity_score": 0.6480666666666667
+    },
+    {
+      "ticker": "MSFT",
+      "company_name": "Microsoft",
+      "sector": "Technology",
+      "authenticity_score": 0.6023777777777778
+    },
+    {
+      "ticker": "CRM",
+      "company_name": "Salesforce",
+      "sector": "Technology",
+      "authenticity_score": 0.577075
+    },
+    {
+      "ticker": "AAPL",
+      "company_name": "Apple",
+      "sector": "Technology",
+      "authenticity_score": 0.550325
+    },
+    {
+      "ticker": "NVDA",
+      "company_name": "NVIDIA",
+      "sector": "Technology",
+      "authenticity_score": 0.53735
+    },
+    {
+      "ticker": "META",
+      "company_name": "Meta Platforms",
+      "sector": "Technology",
+      "authenticity_score": 0.40565999999999997
+    }
+  ],
+  "face_validity_bottom10": [
+    {
+      "ticker": "GOOGL",
+      "company_name": "Alphabet",
+      "sector": "Technology",
+      "authenticity_score": 0.6480666666666667
+    },
+    {
+      "ticker": "MSFT",
+      "company_name": "Microsoft",
+      "sector": "Technology",
+      "authenticity_score": 0.6023777777777778
+    },
+    {
+      "ticker": "CRM",
+      "company_name": "Salesforce",
+      "sector": "Technology",
+      "authenticity_score": 0.577075
+    },
+    {
+      "ticker": "AAPL",
+      "company_name": "Apple",
+      "sector": "Technology",
+      "authenticity_score": 0.550325
+    },
+    {
+      "ticker": "NVDA",
+      "company_name": "NVIDIA",
+      "sector": "Technology",
+      "authenticity_score": 0.53735
+    },
+    {
+      "ticker": "META",
+      "company_name": "Meta Platforms",
+      "sector": "Technology",
+      "authenticity_score": 0.40565999999999997
+    }
+  ],
+  "most_volatile": [
+    {
+      "ticker": "META",
+      "score_volatility": 0.29909671234123136
+    },
+    {
+      "ticker": "AAPL",
+      "score_volatility": 0.19843994653534952
+    },
+    {
+      "ticker": "MSFT",
+      "score_volatility": 0.1221683082297299
+    },
+    {
+      "ticker": "GOOGL",
+      "score_volatility": 0.0847999292452535
+    },
+    {
+      "ticker": "CRM",
+      "score_volatility": 0.06330215899425018
+    },
+    {
+      "ticker": "NVDA",
+      "score_volatility": NaN
+    }
+  ],
+  "most_stable": [
+    {
+      "ticker": "CRM",
+      "score_volatility": 0.06330215899425018
+    },
+    {
+      "ticker": "GOOGL",
+      "score_volatility": 0.0847999292452535
+    },
+    {
+      "ticker": "MSFT",
+      "score_volatility": 0.1221683082297299
+    },
+    {
+      "ticker": "AAPL",
+      "score_volatility": 0.19843994653534952
+    },
+    {
+      "ticker": "META",
+      "score_volatility": 0.29909671234123136
+    },
+    {
+      "ticker": "NVDA",
+      "score_volatility": NaN
+    }
+  ]
 }

@@ -1,1 +1,2 @@
-
+sector,slope,r_squared,p_value,trend,significant,score_2016,score_2024
+Technology,0.03016,0.4737,0.0404,increasing,True,0.383975,0.67394
